@@ -1,0 +1,11 @@
+# Tables written one entry per line, which Prettier would split.
+data/sources/
+
+# Generated in the source of postmasterofpuppets.com, written by npm, or kept as published.
+src/data/psd-dmarc.ts
+src/data/psl-rest.ts
+src/data/cloud-ranges.ts
+data/*.json
+test/fixtures/
+package-lock.json
+CODE_OF_CONDUCT.md

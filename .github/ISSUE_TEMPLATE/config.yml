@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: "https://github.com/randyesperben/postmaster-of-puppets/security/advisories/new"
+    about: Report it privately, as SECURITY.md explains.
+  - name: A question about your own domain
+    url: https://postmasterofpuppets.com/guides/
+    about: The guides explain SPF, DKIM, DMARC and MX, each with the standard it comes from.

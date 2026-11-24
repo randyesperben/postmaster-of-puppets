@@ -1,0 +1,13 @@
+# Text files keep LF line endings, as .editorconfig asks, also in a Windows checkout.
+* text=auto eol=lf
+
+# Recorded DNS answers are bytes, whatever they contain.
+*.bin binary
+
+# Generated in the source of postmasterofpuppets.com: GitHub folds them in diffs and leaves them
+# out of the language statistics.
+src/data/psd-dmarc.ts linguist-generated
+src/data/psl-rest.ts linguist-generated
+src/data/cloud-ranges.ts linguist-generated
+data/*.json linguist-generated
+test/fixtures/** linguist-generated

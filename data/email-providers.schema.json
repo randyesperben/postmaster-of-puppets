@@ -1,0 +1,548 @@
+{
+  "$id": "https://postmasterofpuppets.com/data/email-providers.schema.json",
+  "title": "DKIM selector list and email provider records, with sources",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d{4}\\.(?:0[1-9]|1[0-2])\\.(?:0[1-9]|[12]\\d|3[01])(?:\\.(?:[2-9]|[1-9]\\d+))?$",
+      "description": "YYYY.MM.DD, the day the data changed, with .2, .3 and so on when they change again that day."
+    },
+    "dateVerified": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date",
+          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "The day of the last weekly run whose link, SPF include and RFC checks passed on the data published here; null until one has."
+    },
+    "license": {
+      "type": "string",
+      "const": "CC-BY-4.0"
+    },
+    "licenseUrl": {
+      "type": "string",
+      "const": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "attribution": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "noWarranty": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "quotesNotice": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Where this file is served."
+    },
+    "counts": {
+      "type": "object",
+      "properties": {
+        "providers": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "selectors": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "withVendorPage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991,
+          "description": "The selectors whose source is the vendor's own page."
+        }
+      },
+      "required": [
+        "providers",
+        "selectors",
+        "withVendorPage"
+      ],
+      "additionalProperties": false
+    },
+    "providers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "Stable id; /data/ anchors the provider at #provider-<id>."
+          },
+          "name": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "mx": {
+            "description": "Host suffixes: an MX host equal to one of them, or ending in a dot and one of them, is this provider's.",
+            "$ref": "#/$defs/field"
+          },
+          "spfIncludes": {
+            "description": "Domains: an SPF include of one of them, or of a name under one of them, is this provider's.",
+            "$ref": "#/$defs/field"
+          },
+          "dkimSelectors": {
+            "description": "The DKIM selectors this provider's documentation lists.",
+            "$ref": "#/$defs/field"
+          },
+          "dkimTargets": {
+            "description": "Host suffixes: a DKIM key reached through a CNAME under one of them is this provider's.",
+            "$ref": "#/$defs/field"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "mx",
+          "spfIncludes",
+          "dkimSelectors",
+          "dkimTargets"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "selectors": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "selector": {
+                "type": "string",
+                "pattern": "\\S",
+                "description": "The selector; /data/ anchors it at #selector-<selector>."
+              },
+              "attribution": {
+                "type": "string",
+                "enum": [
+                  "name",
+                  "cname-target",
+                  "never"
+                ],
+                "description": "What the name alone says about a key at this selector. name: the key is the listed provider's. cname-target: the provider publishes its keys by CNAME, so a key is its only when the CNAME points under its dkimTargets. never: the name says nothing about the owner. For every selector, a CNAME under a provider's dkimTargets names that provider."
+              },
+              "provider": {
+                "description": "The id of the provider whose documentation lists this selector.",
+                "type": "string",
+                "minLength": 1
+              },
+              "usedBy": {
+                "description": "Who uses a selector that no provider's list holds.",
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "basis": {
+                "type": "string",
+                "const": "vendor",
+                "description": "The vendor's own page gives the value."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "The page read."
+              },
+              "read": {
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$",
+                "description": "The day the page was read."
+              },
+              "quote": {
+                "type": "string",
+                "pattern": "\\S",
+                "description": "The words of the page that give the value, as published. Not covered by the license of the dataset."
+              }
+            },
+            "required": [
+              "selector",
+              "attribution",
+              "basis",
+              "url",
+              "read",
+              "quote"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "selector": {
+                "type": "string",
+                "pattern": "\\S",
+                "description": "The selector; /data/ anchors it at #selector-<selector>."
+              },
+              "attribution": {
+                "type": "string",
+                "enum": [
+                  "name",
+                  "cname-target",
+                  "never"
+                ],
+                "description": "What the name alone says about a key at this selector. name: the key is the listed provider's. cname-target: the provider publishes its keys by CNAME, so a key is its only when the CNAME points under its dkimTargets. never: the name says nothing about the owner. For every selector, a CNAME under a provider's dkimTargets names that provider."
+              },
+              "provider": {
+                "description": "The id of the provider whose documentation lists this selector.",
+                "type": "string",
+                "minLength": 1
+              },
+              "usedBy": {
+                "description": "Who uses a selector that no provider's list holds.",
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "basis": {
+                "type": "string",
+                "const": "dns",
+                "description": "No vendor page gives the value; it was seen in DNS."
+              },
+              "read": {
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$",
+                "description": "The day it was seen in DNS."
+              },
+              "seenOn": {
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "\\S"
+                },
+                "description": "The domains whose DNS showed it."
+              }
+            },
+            "required": [
+              "selector",
+              "attribution",
+              "basis",
+              "read",
+              "seenOn"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "selector": {
+                "type": "string",
+                "pattern": "\\S",
+                "description": "The selector; /data/ anchors it at #selector-<selector>."
+              },
+              "attribution": {
+                "type": "string",
+                "enum": [
+                  "name",
+                  "cname-target",
+                  "never"
+                ],
+                "description": "What the name alone says about a key at this selector. name: the key is the listed provider's. cname-target: the provider publishes its keys by CNAME, so a key is its only when the CNAME points under its dkimTargets. never: the name says nothing about the owner. For every selector, a CNAME under a provider's dkimTargets names that provider."
+              },
+              "provider": {
+                "description": "The id of the provider whose documentation lists this selector.",
+                "type": "string",
+                "minLength": 1
+              },
+              "usedBy": {
+                "description": "Who uses a selector that no provider's list holds.",
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "basis": {
+                "type": "string",
+                "const": "measured",
+                "description": "A measure of this site gives the value."
+              },
+              "read": {
+                "type": "string",
+                "format": "date",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$",
+                "description": "The day of the measure."
+              }
+            },
+            "required": [
+              "selector",
+              "attribution",
+              "basis",
+              "read"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "title",
+    "version",
+    "dateVerified",
+    "license",
+    "licenseUrl",
+    "attribution",
+    "noWarranty",
+    "quotesNotice",
+    "url",
+    "counts",
+    "providers",
+    "selectors"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "value": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "basis": {
+              "type": "string",
+              "const": "vendor",
+              "description": "The vendor's own page gives the value."
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "The page read."
+            },
+            "read": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$",
+              "description": "The day the page was read."
+            },
+            "quote": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "The words of the page that give the value, as published. Not covered by the license of the dataset."
+            }
+          },
+          "required": [
+            "value",
+            "basis",
+            "url",
+            "read",
+            "quote"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "basis": {
+              "type": "string",
+              "const": "dns",
+              "description": "No vendor page gives the value; it was seen in DNS."
+            },
+            "read": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$",
+              "description": "The day it was seen in DNS."
+            },
+            "seenOn": {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "description": "The domains whose DNS showed it."
+            }
+          },
+          "required": [
+            "value",
+            "basis",
+            "read",
+            "seenOn"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "basis": {
+              "type": "string",
+              "const": "measured",
+              "description": "A measure of this site gives the value."
+            },
+            "read": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$",
+              "description": "The day of the measure."
+            }
+          },
+          "required": [
+            "value",
+            "basis",
+            "read"
+          ],
+          "additionalProperties": false
+        }
+      ],
+      "description": "One value with where it comes from."
+    },
+    "whyEmpty": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "reason": {
+              "type": "string",
+              "const": "none-documented",
+              "description": "The page read gives no such value."
+            },
+            "note": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "The page read."
+            },
+            "read": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$",
+              "description": "The day the page was read."
+            }
+          },
+          "required": [
+            "reason",
+            "url",
+            "read"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "reason": {
+              "type": "string",
+              "const": "documented-not-used",
+              "description": "The page read gives a value the checker does not use; the note says why."
+            },
+            "note": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "The page read."
+            },
+            "read": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$",
+              "description": "The day the page was read."
+            },
+            "quote": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "The words of the page that give the value not used."
+            }
+          },
+          "required": [
+            "reason",
+            "note",
+            "url",
+            "read",
+            "quote"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "reason": {
+              "type": "string",
+              "const": "not-read",
+              "description": "No page was read for it."
+            },
+            "note": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "required": [
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      ],
+      "description": "Why a list is empty."
+    },
+    "field": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "values": {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/value"
+              }
+            }
+          },
+          "required": [
+            "values"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "values": {
+              "maxItems": 0,
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/value"
+              }
+            },
+            "whyEmpty": {
+              "$ref": "#/$defs/whyEmpty"
+            }
+          },
+          "required": [
+            "values",
+            "whyEmpty"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+name: Wrong verdict
+description: Report a result that does not match what the standards say.
+title: "Wrong verdict: "
+labels: [wrong-verdict]
+body:
+  - type: markdown
+    attributes:
+      value: Issues are public. If the domain is private, leave it out and paste only its records, or propose a badmail.dev case with the same setup.
+  - type: textarea
+    id: result
+    attributes:
+      label: What the check said
+      description: The verdict and the findings it showed.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What it should say, and why
+      description: Link the RFC section or provider page.
+    validations:
+      required: true
+  - type: textarea
+    id: records
+    attributes:
+      label: DNS records
+      description: The records the check read, as dig or your DNS panel shows them.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: domain
+    attributes:
+      label: Domain (optional)

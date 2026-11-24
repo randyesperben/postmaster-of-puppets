@@ -1,0 +1,4204 @@
+{
+  "title": "DKIM selector list and email provider records, with sources",
+  "version": "2026.11.24.8",
+  "dateVerified": null,
+  "license": "CC-BY-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "Postmaster of Puppets, https://postmasterofpuppets.com/data/",
+  "noWarranty": "The data is provided as is, without warranty of any kind. Check a value against its source before you rely on it.",
+  "quotesNotice": "Each quote field holds words from the page its url links to, quoted as published. Quotes are not covered by the CC BY 4.0 license of this dataset.",
+  "url": "https://postmasterofpuppets.com/data/email-providers.json",
+  "counts": {
+    "providers": 66,
+    "selectors": 76,
+    "withVendorPage": 73
+  },
+  "providers": [
+    {
+      "id": "google-workspace",
+      "name": "Google Workspace",
+      "mx": {
+        "values": [
+          {
+            "value": "smtp.google.com",
+            "basis": "vendor",
+            "url": "https://knowledge.workspace.google.com/admin/domains/set-up-mx-records-for-google-workspace",
+            "read": "2026-11-20",
+            "quote": "The Google Workspace MX record value is smtp.google.com ."
+          },
+          {
+            "value": "aspmx.l.google.com",
+            "basis": "dns",
+            "read": "2026-11-20",
+            "seenOn": [
+              "zapier.com",
+              "stripe.com",
+              "airbnb.com",
+              "shopify.com"
+            ]
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.google.com",
+            "basis": "vendor",
+            "url": "https://knowledge.workspace.google.com/admin/security/set-up-spf",
+            "read": "2026-11-20",
+            "quote": "If you use only Google Workspace to send email, copy this line of text: v=spf1 include:_spf.google.com ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "google",
+            "basis": "vendor",
+            "url": "https://knowledge.workspace.google.com/admin/security/set-up-dkim",
+            "read": "2026-11-20",
+            "quote": "The default prefix selector is google ."
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The key is a TXT record, so there is no CNAME target.",
+          "url": "https://knowledge.workspace.google.com/admin/security/set-up-dkim",
+          "read": "2026-11-20"
+        }
+      }
+    },
+    {
+      "id": "microsoft-365",
+      "name": "Microsoft 365",
+      "mx": {
+        "values": [
+          {
+            "value": "mail.protection.outlook.com",
+            "basis": "vendor",
+            "url": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/external-domain-name-system-records",
+            "read": "2026-11-20",
+            "quote": "Target email server: <MX token>.mail.protection.outlook.com"
+          },
+          {
+            "value": "mx.microsoft",
+            "basis": "vendor",
+            "url": "https://learn.microsoft.com/en-us/exchange/security-and-compliance/how-dane-secures-email",
+            "read": "2026-11-20",
+            "quote": "This value is the name that the new MX record points to for the domain you're enabling with DNSSEC. For example, contosotest-com.o-v1.mx.microsoft ."
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.protection.outlook.com",
+            "basis": "vendor",
+            "url": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/external-domain-name-system-records",
+            "read": "2026-11-20",
+            "quote": "TXT Name @ Values: v=spf1 include:spf.protection.outlook.com -all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "selector1",
+            "basis": "vendor",
+            "url": "https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure",
+            "read": "2026-11-20",
+            "quote": "Points to address or value: selector1-contoso-com._domainkey.contoso.onmicrosoft.com"
+          },
+          {
+            "value": "selector2",
+            "basis": "vendor",
+            "url": "https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure",
+            "read": "2026-11-20",
+            "quote": "Hostname: selector2._domainkey"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "onmicrosoft.com",
+            "basis": "vendor",
+            "url": "https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure",
+            "read": "2026-11-20",
+            "quote": "Points to address or value: selector1-contoso-com._domainkey.contoso.onmicrosoft.com"
+          },
+          {
+            "value": "dkim.mail.microsoft",
+            "basis": "vendor",
+            "url": "https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure",
+            "read": "2026-11-20",
+            "quote": "dkim.mail.microsoft : The parent DNS zone that's the same for both selectors."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fastmail",
+      "name": "Fastmail",
+      "mx": {
+        "values": [
+          {
+            "value": "messagingengine.com",
+            "basis": "vendor",
+            "url": "https://www.fastmail.help/hc/en-us/articles/360060591153-Manual-DNS-configuration",
+            "read": "2026-11-20",
+            "quote": "MX @ in1-smtp.messagingengine.com 10"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.messagingengine.com",
+            "basis": "vendor",
+            "url": "https://www.fastmail.help/hc/en-us/articles/360060591153-Manual-DNS-configuration",
+            "read": "2026-11-20",
+            "quote": "TXT {mydomain.com} v=spf1 include:spf.messagingengine.com ?all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "fm1",
+            "basis": "vendor",
+            "url": "https://www.fastmail.help/hc/en-us/articles/360060591153-Manual-DNS-configuration",
+            "read": "2026-11-20",
+            "quote": "CNAME fm1._domainkey fm1.{mydomain.com}.dkim.fmhosted.com"
+          },
+          {
+            "value": "fm2",
+            "basis": "vendor",
+            "url": "https://www.fastmail.help/hc/en-us/articles/360060591153-Manual-DNS-configuration",
+            "read": "2026-11-20",
+            "quote": "CNAME fm2._domainkey fm2.{mydomain.com}.dkim.fmhosted.com"
+          },
+          {
+            "value": "fm3",
+            "basis": "vendor",
+            "url": "https://www.fastmail.help/hc/en-us/articles/360060591153-Manual-DNS-configuration",
+            "read": "2026-11-20",
+            "quote": "CNAME fm3._domainkey fm3.{mydomain.com}.dkim.fmhosted.com"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "dkim.fmhosted.com",
+            "basis": "vendor",
+            "url": "https://www.fastmail.help/hc/en-us/articles/360060591153-Manual-DNS-configuration",
+            "read": "2026-11-20",
+            "quote": "CNAME fm1._domainkey fm1.{mydomain.com}.dkim.fmhosted.com"
+          }
+        ]
+      }
+    },
+    {
+      "id": "zoho-mail",
+      "name": "Zoho Mail",
+      "mx": {
+        "values": [
+          {
+            "value": "zoho.com",
+            "basis": "vendor",
+            "url": "https://www.zoho.com/mail/help/adminconsole/configure-email-delivery.html",
+            "read": "2026-11-20",
+            "quote": "@/ Blank/ Domain name mx.zoho.com 10"
+          },
+          {
+            "value": "zoho.eu",
+            "basis": "dns",
+            "read": "2026-11-20",
+            "seenOn": [
+              "zoho.eu"
+            ]
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "zohomail.com",
+            "basis": "vendor",
+            "url": "https://www.zoho.com/mail/help/adminconsole/spf-configuration.html",
+            "read": "2026-11-20",
+            "quote": "The Valid SPF records that need to be published are provided below: v=spf1 include:zohomail.com -all"
+          },
+          {
+            "value": "one.zoho.com",
+            "basis": "vendor",
+            "url": "https://www.zoho.com/mail/help/adminconsole/spf-configuration.html",
+            "read": "2026-11-20",
+            "quote": "In case you are using multiple Zoho services, you can use v=spf1 include:one.zoho.com -all to avoid any SPF lookup failure."
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "zoho",
+            "basis": "vendor",
+            "url": "https://www.zoho.com/mail/help/adminconsole/dkim-configuration.html",
+            "read": "2026-11-20",
+            "quote": "zoho._domainkey"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The key is a TXT record, so there is no CNAME target.",
+          "url": "https://www.zoho.com/mail/help/adminconsole/dkim-configuration.html",
+          "read": "2026-11-20"
+        }
+      }
+    },
+    {
+      "id": "proton-mail",
+      "name": "Proton Mail",
+      "mx": {
+        "values": [
+          {
+            "value": "protonmail.ch",
+            "basis": "vendor",
+            "url": "https://proton.me/support/custom-domain-cloudflare",
+            "read": "2026-11-20",
+            "quote": "Mail server : mail.protonmail.ch"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.protonmail.ch",
+            "basis": "vendor",
+            "url": "https://proton.me/support/anti-spoofing-custom-domain",
+            "read": "2026-11-20",
+            "quote": "The “include:_spf.protonmail.ch” part of the text string means that you allow Proton Mail servers to send on behalf of your domain."
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "protonmail",
+            "basis": "vendor",
+            "url": "https://proton.me/support/custom-domain-cloudflare",
+            "read": "2026-11-20",
+            "quote": "Name : protonmail._domainkey"
+          },
+          {
+            "value": "protonmail2",
+            "basis": "vendor",
+            "url": "https://proton.me/support/custom-domain-cloudflare",
+            "read": "2026-11-20",
+            "quote": "To add a second and third DKIM record, repeat these steps with the appropriate record names protonmail2._domainkey and protonmail3._domainkey ."
+          },
+          {
+            "value": "protonmail3",
+            "basis": "vendor",
+            "url": "https://proton.me/support/custom-domain-cloudflare",
+            "read": "2026-11-20",
+            "quote": "To add a second and third DKIM record, repeat these steps with the appropriate record names protonmail2._domainkey and protonmail3._domainkey ."
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The CNAME target is copied from the Proton Mail console; the page does not give it.",
+          "url": "https://proton.me/support/custom-domain-cloudflare",
+          "read": "2026-11-20"
+        }
+      }
+    },
+    {
+      "id": "icloud",
+      "name": "iCloud+",
+      "mx": {
+        "values": [
+          {
+            "value": "mail.icloud.com",
+            "basis": "vendor",
+            "url": "https://support.apple.com/en-us/102374",
+            "read": "2026-11-20",
+            "quote": "Record Type: MX Host: @ Value: mx01.mail.icloud.com."
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "icloud.com",
+            "basis": "vendor",
+            "url": "https://support.apple.com/en-us/102374",
+            "read": "2026-11-20",
+            "quote": "Record Type: TXT Host: @ Value: \"v=spf1 include:icloud.com ~all\""
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "sig1",
+            "basis": "vendor",
+            "url": "https://support.apple.com/en-us/102374",
+            "read": "2026-11-20",
+            "quote": "Record Type: CNAME Host: sig1._domainkey Value: sig1.dkim.example.com.at.icloudmailadmin.com."
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "at.icloudmailadmin.com",
+            "basis": "vendor",
+            "url": "https://support.apple.com/en-us/102374",
+            "read": "2026-11-20",
+            "quote": "Record Type: CNAME Host: sig1._domainkey Value: sig1.dkim.example.com.at.icloudmailadmin.com."
+          }
+        ]
+      }
+    },
+    {
+      "id": "cloudflare-email-routing",
+      "name": "Cloudflare Email Routing",
+      "mx": {
+        "values": [
+          {
+            "value": "mx.cloudflare.net",
+            "basis": "vendor",
+            "url": "https://developers.cloudflare.com/email-service/configuration/domains/",
+            "read": "2026-11-20",
+            "quote": "Purpose : Route incoming emails to Cloudflare's mail servers. MX yourdomain.com route1.mx.cloudflare.net"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.mx.cloudflare.net",
+            "basis": "vendor",
+            "url": "https://developers.cloudflare.com/email-service/configuration/domains/",
+            "read": "2026-11-20",
+            "quote": "v=spf1 include:_spf.mx.cloudflare.net ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "cf2024-1",
+            "basis": "vendor",
+            "url": "https://developers.cloudflare.com/email-service/configuration/domains/",
+            "read": "2026-11-20",
+            "quote": "TXT cf2024-1._domainkey.yourdomain.com"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The key is a TXT record, so there is no CNAME target.",
+          "url": "https://developers.cloudflare.com/email-service/configuration/domains/",
+          "read": "2026-11-20"
+        }
+      }
+    },
+    {
+      "id": "amazon-ses",
+      "name": "Amazon SES",
+      "mx": {
+        "values": [
+          {
+            "value": "amazonses.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/ses/latest/dg/mail-from.html",
+            "read": "2026-11-20",
+            "quote": "subdomain.domain.com MX 10 feedback-smtp.region.amazonses.com"
+          },
+          {
+            "value": "inbound-smtp.us-east-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "US East (N. Virginia) us-east-1 inbound-smtp.us-east-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.us-east-2.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "US East (Ohio) us-east-2 inbound-smtp.us-east-2.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.us-west-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "US West (N. California) us-west-1 inbound-smtp.us-west-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.us-west-2.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "US West (Oregon) us-west-2 inbound-smtp.us-west-2.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.af-south-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Africa (Cape Town) af-south-1 inbound-smtp.af-south-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.ap-southeast-3.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Asia Pacific (Jakarta) ap-southeast-3 inbound-smtp.ap-southeast-3.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.ap-south-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Asia Pacific (Mumbai) ap-south-1 inbound-smtp.ap-south-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.ap-northeast-3.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Asia Pacific (Osaka) ap-northeast-3 inbound-smtp.ap-northeast-3.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.ap-northeast-2.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Asia Pacific (Seoul) ap-northeast-2 inbound-smtp.ap-northeast-2.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.ap-southeast-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Asia Pacific (Singapore) ap-southeast-1 inbound-smtp.ap-southeast-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.ap-southeast-2.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Asia Pacific (Sydney) ap-southeast-2 inbound-smtp.ap-southeast-2.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.ap-northeast-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Asia Pacific (Tokyo) ap-northeast-1 inbound-smtp.ap-northeast-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.ca-central-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Canada (Central) ca-central-1 inbound-smtp.ca-central-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.eu-central-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Europe (Frankfurt) eu-central-1 inbound-smtp.eu-central-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.eu-west-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Europe (Ireland) eu-west-1 inbound-smtp.eu-west-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.eu-west-2.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Europe (London) eu-west-2 inbound-smtp.eu-west-2.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.eu-south-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Europe (Milan) eu-south-1 inbound-smtp.eu-south-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.eu-west-3.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Europe (Paris) eu-west-3 inbound-smtp.eu-west-3.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.eu-north-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Europe (Stockholm) eu-north-1 inbound-smtp.eu-north-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.il-central-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Israel (Tel Aviv) il-central-1 inbound-smtp.il-central-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.me-south-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "Middle East (Bahrain) me-south-1 inbound-smtp.me-south-1.amazonaws.com"
+          },
+          {
+            "value": "inbound-smtp.sa-east-1.amazonaws.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/general/latest/gr/ses.html",
+            "read": "2026-11-24",
+            "quote": "South America (São Paulo) sa-east-1 inbound-smtp.sa-east-1.amazonaws.com"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "amazonses.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/ses/latest/dg/mail-from.html",
+            "read": "2026-11-20",
+            "quote": "subdomain.domain.com TXT \"v=spf1 include:amazonses.com ~all\""
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "Easy DKIM gives three CNAME records per domain in the SES console; their names are tokens no list can hold.",
+          "url": "https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html",
+          "read": "2026-11-20"
+        }
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "amazonses.com",
+            "basis": "vendor",
+            "url": "https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html",
+            "read": "2026-11-20",
+            "quote": "Each CNAME record's value is composed of the DKIM token followed by a hosted zone domain (for example, token.dkim.us-west-2.amazonses.com). The hosted zone portion varies by AWS Region and identity."
+          }
+        ]
+      }
+    },
+    {
+      "id": "sendgrid",
+      "name": "SendGrid",
+      "mx": {
+        "values": [
+          {
+            "value": "sendgrid.net",
+            "basis": "vendor",
+            "url": "https://www.twilio.com/docs/sendgrid/ui/account-and-settings/how-to-set-up-domain-authentication",
+            "read": "2026-11-20",
+            "quote": "MX em[0000].example.com mx.sendgrid.net. MX"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "sendgrid.net",
+            "basis": "vendor",
+            "url": "https://www.twilio.com/docs/sendgrid/ui/account-and-settings/how-to-set-up-domain-authentication",
+            "read": "2026-11-20",
+            "quote": "TXT em[0000].example.com v=spf1 include:sendgrid.net ~all SPF"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "s1",
+            "basis": "vendor",
+            "url": "https://www.twilio.com/docs/sendgrid/ui/account-and-settings/how-to-set-up-domain-authentication",
+            "read": "2026-11-20",
+            "quote": "s1._domainkey.example.com s1.domainkey.[u00000000].[wl000].sendgrid.net DKIM"
+          },
+          {
+            "value": "s2",
+            "basis": "vendor",
+            "url": "https://www.twilio.com/docs/sendgrid/ui/account-and-settings/how-to-set-up-domain-authentication",
+            "read": "2026-11-20",
+            "quote": "s2._domainkey.example.com s2.domainkey.[u00000000].[wl000].sendgrid.net DKIM"
+          },
+          {
+            "value": "m1",
+            "basis": "vendor",
+            "url": "https://www.twilio.com/docs/sendgrid/ui/account-and-settings/how-to-set-up-domain-authentication",
+            "read": "2026-11-20",
+            "quote": "m1._domainkey.example.com k=rsa; t=s; p=MIG... DKIM"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "sendgrid.net",
+            "basis": "vendor",
+            "url": "https://www.twilio.com/docs/sendgrid/ui/account-and-settings/how-to-set-up-domain-authentication",
+            "read": "2026-11-20",
+            "quote": "s1._domainkey.example.com s1.domainkey.[u00000000].[wl000].sendgrid.net DKIM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mailgun",
+      "name": "Mailgun",
+      "mx": {
+        "values": [
+          {
+            "value": "mailgun.org",
+            "basis": "vendor",
+            "url": "https://help.mailgun.com/hc/en-us/articles/15585722150299-Cloudflare-DNS-Setup-Guide",
+            "read": "2026-11-20",
+            "quote": "Mail server mxa.mailgun.org (for the first MX record) mxb.mailgun.org (for the second MX record)"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "mailgun.org",
+            "basis": "vendor",
+            "url": "https://help.mailgun.com/hc/en-us/articles/15585722150299-Cloudflare-DNS-Setup-Guide",
+            "read": "2026-11-20",
+            "quote": "Content v=spf1 include:mailgun.org ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "smtp",
+            "basis": "vendor",
+            "url": "https://help.mailgun.com/hc/en-us/articles/15585722150299-Cloudflare-DNS-Setup-Guide",
+            "read": "2026-11-20",
+            "quote": "pic._domainkey (or, one of several other values such as krs._domainkey , smtp._domainkey , or mailo._domainkey )"
+          },
+          {
+            "value": "mx",
+            "basis": "vendor",
+            "url": "https://help.mailgun.com/hc/en-us/articles/32884700912923-Domain-Verification-Setup-Guide",
+            "read": "2026-11-20",
+            "quote": "Add another TXT record for mx._domainkey.mail.yourdomain.com ."
+          },
+          {
+            "value": "pic",
+            "basis": "vendor",
+            "url": "https://help.mailgun.com/hc/en-us/articles/15585722150299-Cloudflare-DNS-Setup-Guide",
+            "read": "2026-11-20",
+            "quote": "pic._domainkey (or, one of several other values such as krs._domainkey , smtp._domainkey , or mailo._domainkey )"
+          },
+          {
+            "value": "krs",
+            "basis": "vendor",
+            "url": "https://help.mailgun.com/hc/en-us/articles/15585722150299-Cloudflare-DNS-Setup-Guide",
+            "read": "2026-11-20",
+            "quote": "pic._domainkey (or, one of several other values such as krs._domainkey , smtp._domainkey , or mailo._domainkey )"
+          },
+          {
+            "value": "mailo",
+            "basis": "vendor",
+            "url": "https://help.mailgun.com/hc/en-us/articles/15585722150299-Cloudflare-DNS-Setup-Guide",
+            "read": "2026-11-20",
+            "quote": "pic._domainkey (or, one of several other values such as krs._domainkey , smtp._domainkey , or mailo._domainkey )"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "Its only DKIM CNAME target is for the pdk1 and pdk2 selectors of Automatic Sender Security, which this check does not look up; none is given for smtp, mx, pic, krs or mailo.",
+          "url": "https://help.mailgun.com/hc/en-us/articles/16956951504539-How-can-I-rotate-my-DKIM-key",
+          "read": "2026-11-20",
+          "quote": "the target where you point back to Mailgun will look something like pdk1._domainkey.9d876.dkim1.mailgun.com"
+        }
+      }
+    },
+    {
+      "id": "postmark",
+      "name": "Postmark",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The custom Return-Path is a CNAME to pm.mtasv.net, not an MX.",
+          "url": "https://postmarkapp.com/support/article/910-how-do-i-add-a-custom-return-path",
+          "read": "2026-11-20"
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://postmarkapp.com/support/article/910-how-do-i-add-a-custom-return-path",
+          "read": "2026-11-20"
+        }
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The DKIM record, its name included, is shown in the Postmark account.",
+          "url": "https://postmarkapp.com/support/article/1091-how-do-i-set-up-dkim-for-postmark",
+          "read": "2026-11-20"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The key is a TXT record, so there is no CNAME target.",
+          "url": "https://postmarkapp.com/support/article/1091-how-do-i-set-up-dkim-for-postmark",
+          "read": "2026-11-20"
+        }
+      }
+    },
+    {
+      "id": "resend",
+      "name": "Resend",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "The MX and the include on the send subdomain are those of Amazon SES, listed under Amazon SES.",
+          "url": "https://resend.com/docs/llms-full.txt",
+          "read": "2026-11-20",
+          "quote": "\"name\": \"send\", \"type\": \"MX\", \"ttl\": \"Auto\", \"status\": \"not_started\", \"value\": \"feedback-smtp.us-east-1.amazonses.com\""
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "The MX and the include on the send subdomain are those of Amazon SES, listed under Amazon SES.",
+          "url": "https://resend.com/docs/llms-full.txt",
+          "read": "2026-11-20",
+          "quote": "\"name\": \"send\", \"value\": \"v=spf1 include:amazonses.com ~all\""
+        }
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "resend",
+            "basis": "vendor",
+            "url": "https://resend.com/docs/llms-full.txt",
+            "read": "2026-11-20",
+            "quote": "Type `resend._domainkey` for the `Name` of the record."
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The key is a TXT record, so there is no CNAME target.",
+          "url": "https://resend.com/docs/llms-full.txt",
+          "read": "2026-11-20"
+        }
+      }
+    },
+    {
+      "id": "brevo",
+      "name": "Brevo",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://help.brevo.com/hc/en-us/articles/16045394674066",
+          "read": "2026-11-20"
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://help.brevo.com/hc/en-us/articles/16045394674066",
+          "read": "2026-11-20"
+        }
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "brevo1",
+            "basis": "vendor",
+            "url": "https://help.brevo.com/hc/en-us/articles/16045394674066",
+            "read": "2026-11-20",
+            "quote": "DKIM 1 record brevo1._domainkey brevo1._domainkey.yourdomain.com"
+          },
+          {
+            "value": "brevo2",
+            "basis": "vendor",
+            "url": "https://help.brevo.com/hc/en-us/articles/16045394674066",
+            "read": "2026-11-20",
+            "quote": "DKIM 2 record brevo2._domainkey brevo2._domainkey.yourdomain.com"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The value of each record is copied from the Brevo account; the page does not give it.",
+          "url": "https://help.brevo.com/hc/en-us/articles/16045394674066",
+          "read": "2026-11-20"
+        }
+      }
+    },
+    {
+      "id": "mailchimp",
+      "name": "Mailchimp",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://mailchimp.com/help/set-up-email-domain-authentication/",
+          "read": "2026-11-20"
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The page asks for 2 CNAME records and 1 TXT record, the DMARC one, and no SPF.",
+          "url": "https://mailchimp.com/help/set-up-email-domain-authentication/",
+          "read": "2026-11-20"
+        }
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "k1",
+            "basis": "dns",
+            "read": "2026-11-20",
+            "seenOn": [
+              "mailchimp.com",
+              "intuit.com"
+            ]
+          },
+          {
+            "value": "k2",
+            "basis": "vendor",
+            "url": "https://mailchimp.com/help/set-up-email-domain-authentication/",
+            "read": "2026-11-20",
+            "quote": "For example, if you enter “k2._domainkey.example.com” and “k2._domainkey.example.com.example.com” is created"
+          },
+          {
+            "value": "k3",
+            "basis": "dns",
+            "read": "2026-11-20",
+            "seenOn": [
+              "mailchimp.com",
+              "intuit.com"
+            ]
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "mcsv.net",
+            "basis": "dns",
+            "read": "2026-11-20",
+            "seenOn": [
+              "mailchimp.com",
+              "intuit.com"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "klaviyo",
+      "name": "Klaviyo",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "Only a service sending subdomain gets an MX record, and Klaviyo manages it.",
+          "url": "https://help.klaviyo.com/hc/en-us/articles/115000357752",
+          "read": "2026-11-20"
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://help.klaviyo.com/hc/en-us/articles/115000357752",
+          "read": "2026-11-20"
+        }
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "kl",
+            "basis": "vendor",
+            "url": "https://help.klaviyo.com/hc/en-us/articles/4417768780827",
+            "read": "2026-11-20",
+            "quote": "Existing static domains can use legacy selector pairs such as kl/kl2 or kl1/kl2 ."
+          },
+          {
+            "value": "kl2",
+            "basis": "vendor",
+            "url": "https://help.klaviyo.com/hc/en-us/articles/4417768780827",
+            "read": "2026-11-20",
+            "quote": "Existing static domains can use legacy selector pairs such as kl/kl2 or kl1/kl2 ."
+          },
+          {
+            "value": "kl1",
+            "basis": "vendor",
+            "url": "https://help.klaviyo.com/hc/en-us/articles/115000357752",
+            "read": "2026-11-20",
+            "quote": "your DNS records use the legacy kl1 / kl2 DKIM selectors and continue to work without changes."
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "u161779.wl030.sendgrid.net",
+            "basis": "vendor",
+            "url": "https://help.klaviyo.com/hc/en-us/articles/4417768780827",
+            "read": "2026-11-20",
+            "quote": "this would make the value u161779.wl030.sendgrid.net.rootdomain.com instead of just u161779.wl030.sendgrid.net."
+          },
+          {
+            "value": "klaviyodns.com",
+            "basis": "vendor",
+            "url": "https://help.klaviyo.com/hc/en-us/articles/115000357752",
+            "read": "2026-11-20",
+            "quote": "km1._domainkey.helloworld.com km1._domainkey.1.klaviyodns.com CNAME"
+          }
+        ]
+      }
+    },
+    {
+      "id": "zendesk",
+      "name": "Zendesk",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408832543770-Allowing-Zendesk-to-send-email-on-behalf-of-your-email-domain",
+          "read": "2026-11-20"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "mail.zendesk.com",
+            "basis": "vendor",
+            "url": "https://support.zendesk.com/hc/en-us/articles/4408832543770-Allowing-Zendesk-to-send-email-on-behalf-of-your-email-domain",
+            "read": "2026-11-20",
+            "quote": "Zendesk recommends using the following SPF record: v=spf1 include:mail.zendesk.com -all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "zendesk1",
+            "basis": "vendor",
+            "url": "https://support.zendesk.com/hc/en-us/articles/4408822303386-Digitally-signing-your-email-with-DKIM",
+            "read": "2026-11-20",
+            "quote": "In the Host Record field (or equivalent), enter: zendesk1._domainkey. your_email_domain.com"
+          },
+          {
+            "value": "zendesk2",
+            "basis": "vendor",
+            "url": "https://support.zendesk.com/hc/en-us/articles/4408822303386-Digitally-signing-your-email-with-DKIM",
+            "read": "2026-11-20",
+            "quote": "In the Host Record field, enter: zendesk2._domainkey. your_email_domain .com"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "zendesk.com",
+            "basis": "vendor",
+            "url": "https://support.zendesk.com/hc/en-us/articles/4408822303386-Digitally-signing-your-email-with-DKIM",
+            "read": "2026-11-20",
+            "quote": "In the Points To field (or equivalent), enter: zendesk1._domainkey.zendesk.com"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mandrill",
+      "name": "Mailchimp Transactional",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://mailchimp.com/developer/transactional/docs/authentication-delivery/",
+          "read": "2026-11-20"
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "Its return path is its own, mandrillapp.com, unless the sender points it to a domain of theirs.",
+          "url": "https://mailchimp.com/developer/transactional/docs/authentication-delivery/",
+          "read": "2026-11-20"
+        }
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "mte1",
+            "basis": "vendor",
+            "url": "https://mailchimp.com/developer/transactional/docs/authentication-delivery/",
+            "read": "2026-11-20",
+            "quote": "Add two new CNAME records with the names mte1._domainkey.example.com and mte2._domainkey.example.com"
+          },
+          {
+            "value": "mte2",
+            "basis": "vendor",
+            "url": "https://mailchimp.com/developer/transactional/docs/authentication-delivery/",
+            "read": "2026-11-20",
+            "quote": "Add two new CNAME records with the names mte1._domainkey.example.com and mte2._domainkey.example.com"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "mandrillapp.com",
+            "basis": "vendor",
+            "url": "https://mailchimp.com/developer/transactional/docs/authentication-delivery/",
+            "read": "2026-11-20",
+            "quote": "The value for the record should first CNAME should be dkim1.mandrillapp.com , and the value for the second record should be dkim2.mandrillapp.com ."
+          }
+        ]
+      }
+    },
+    {
+      "id": "hostinger",
+      "name": "Hostinger Email",
+      "mx": {
+        "values": [
+          {
+            "value": "mx1.hostinger.com",
+            "basis": "vendor",
+            "url": "https://www.hostinger.com/support/4407237-hostinger-email-mx-records/",
+            "read": "2026-11-20",
+            "quote": "@ 5 mx1.hostinger.com"
+          },
+          {
+            "value": "mx2.hostinger.com",
+            "basis": "vendor",
+            "url": "https://www.hostinger.com/support/4407237-hostinger-email-mx-records/",
+            "read": "2026-11-20",
+            "quote": "@ 10 mx2.hostinger.com"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.mail.hostinger.com",
+            "basis": "vendor",
+            "url": "https://www.hostinger.com/support/1583673-what-is-the-spf-record-for-hostinger-email/",
+            "read": "2026-11-20",
+            "quote": "TXT @ v=spf1 include:_spf.mail.hostinger.com ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "hostingermail-a",
+            "basis": "vendor",
+            "url": "https://www.hostinger.com/support/4456413-what-are-the-dkim-records-for-hostinger-email/",
+            "read": "2026-11-20",
+            "quote": "CNAME hostingermail-a._domainkey hostingermail-a.dkim.mail.hostinger.com"
+          },
+          {
+            "value": "hostingermail-b",
+            "basis": "vendor",
+            "url": "https://www.hostinger.com/support/4456413-what-are-the-dkim-records-for-hostinger-email/",
+            "read": "2026-11-20",
+            "quote": "CNAME hostingermail-b._domainkey hostingermail-b.dkim.mail.hostinger.com"
+          },
+          {
+            "value": "hostingermail-c",
+            "basis": "vendor",
+            "url": "https://www.hostinger.com/support/4456413-what-are-the-dkim-records-for-hostinger-email/",
+            "read": "2026-11-20",
+            "quote": "CNAME hostingermail-c._domainkey hostingermail-c.dkim.mail.hostinger.com"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "dkim.mail.hostinger.com",
+            "basis": "vendor",
+            "url": "https://www.hostinger.com/support/4456413-what-are-the-dkim-records-for-hostinger-email/",
+            "read": "2026-11-20",
+            "quote": "CNAME hostingermail-a._domainkey hostingermail-a.dkim.mail.hostinger.com"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ionos",
+      "name": "IONOS",
+      "mx": {
+        "values": [
+          {
+            "value": "ionos.com",
+            "basis": "vendor",
+            "url": "https://www.ionos.com/help/email/troubleshooting-mail-basic-mail-business/adjusting-mx-records-for-receiving-email-via-ionos-mail-servers/",
+            "read": "2026-11-20",
+            "quote": "receiving emails will only be possible using the correct MX record entries mx00.ionos.com / mx01.ionos.com (alternatively mx00.1and1.com / mx01.1and1.com)."
+          },
+          {
+            "value": "1and1.com",
+            "basis": "vendor",
+            "url": "https://www.ionos.com/help/email/troubleshooting-mail-basic-mail-business/adjusting-mx-records-for-receiving-email-via-ionos-mail-servers/",
+            "read": "2026-11-20",
+            "quote": "receiving emails will only be possible using the correct MX record entries mx00.ionos.com / mx01.ionos.com (alternatively mx00.1and1.com / mx01.1and1.com)."
+          },
+          {
+            "value": "ionos.de",
+            "basis": "vendor",
+            "url": "https://www.ionos.de/hilfe/e-mail/problemloesungen-mail-basicmail-business/mx-eintraege-fuer-e-mail-empfang-ueber-ionos-mailserver-anpassen/",
+            "read": "2026-11-20",
+            "quote": "mx00.ionos.de / mx01.ionos.de (alternativ: mx00.kundenserver.de / mx01.kundenserver.de)"
+          },
+          {
+            "value": "kundenserver.de",
+            "basis": "vendor",
+            "url": "https://www.ionos.de/hilfe/e-mail/problemloesungen-mail-basicmail-business/mx-eintraege-fuer-e-mail-empfang-ueber-ionos-mailserver-anpassen/",
+            "read": "2026-11-20",
+            "quote": "mx00.ionos.de / mx01.ionos.de (alternativ: mx00.kundenserver.de / mx01.kundenserver.de)"
+          },
+          {
+            "value": "ionos.es",
+            "basis": "vendor",
+            "url": "https://www.ionos.es/ayuda/index.php?id=19640",
+            "read": "2026-11-24",
+            "quote": "mx00.ionos.es y mx01.ionos.es (o alternativamente mx00.1and1.es y mx01.1and1.es )"
+          },
+          {
+            "value": "1and1.es",
+            "basis": "vendor",
+            "url": "https://www.ionos.es/ayuda/index.php?id=19640",
+            "read": "2026-11-24",
+            "quote": "mx00.ionos.es y mx01.ionos.es (o alternativamente mx00.1and1.es y mx01.1and1.es )"
+          },
+          {
+            "value": "1and1.fr",
+            "basis": "vendor",
+            "url": "https://www.ionos.fr/assistance/domaines/informations-generales-sur-les-parametres-dns/parametres-dns-par-defaut-pour-les-domaines-enregistres-chez-11-ionos/",
+            "read": "2026-11-24",
+            "quote": "Serveur de messagerie 1 mx00.1and1.fr Serveur de messagerie 2 mx01.1and1.fr"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "The page, on ionos.com, gives include:_spf-us.ionos.com, and the French and Spanish ones _spf-eu.ionos.com (2026-11-24). No page maps every country to its include, so the check does not suggest one.",
+          "url": "https://www.ionos.com/help/domains/configuring-mail-servers-and-other-related-records/using-ionos-spf-to-improve-email-delivery/",
+          "read": "2026-11-20",
+          "quote": "create a TXT record for your domain with the following value: v=spf1 include:_spf-us.ionos.com ~all"
+        }
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "s1-ionos",
+            "basis": "vendor",
+            "url": "https://www.ionos.com/help/domains/configuring-mail-servers-and-other-related-records/email-authentication-with-dkim",
+            "read": "2026-11-20",
+            "quote": "s1-ionos._domainkey s1.dkim.ionos.com 1 hour"
+          },
+          {
+            "value": "s2-ionos",
+            "basis": "vendor",
+            "url": "https://www.ionos.com/help/domains/configuring-mail-servers-and-other-related-records/email-authentication-with-dkim",
+            "read": "2026-11-20",
+            "quote": "s2-ionos._domainkey s2.dkim.ionos.com 1 hour"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "dkim.ionos.com",
+            "basis": "vendor",
+            "url": "https://www.ionos.com/help/domains/configuring-mail-servers-and-other-related-records/email-authentication-with-dkim",
+            "read": "2026-11-20",
+            "quote": "s1-ionos._domainkey s1.dkim.ionos.com 1 hour"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gandi",
+      "name": "Gandi Mail",
+      "mx": {
+        "values": [
+          {
+            "value": "mail.gandi.net",
+            "basis": "vendor",
+            "url": "https://docs.gandi.net/en/domain_names/faq/record_types/mx_record.html",
+            "read": "2026-11-20",
+            "quote": "@ 10800 IN MX 10 spool.mail.gandi.net."
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_mailcust.gandi.net",
+            "basis": "vendor",
+            "url": "https://docs.gandi.net/en/gandimail/common_operations/enable_antispoofing_tools.html",
+            "read": "2026-11-20",
+            "quote": "@ 10800 IN TXT \"v=spf1 include:_mailcust.gandi.net ?all\""
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "gm1",
+            "basis": "vendor",
+            "url": "https://docs.gandi.net/en/gandimail/common_operations/enable_antispoofing_tools.html",
+            "read": "2026-11-20",
+            "quote": "gm1._domainkey 10800 IN CNAME gm1.gandimail.net."
+          },
+          {
+            "value": "gm2",
+            "basis": "vendor",
+            "url": "https://docs.gandi.net/en/gandimail/common_operations/enable_antispoofing_tools.html",
+            "read": "2026-11-20",
+            "quote": "gm2._domainkey 10800 IN CNAME gm2.gandimail.net."
+          },
+          {
+            "value": "gm3",
+            "basis": "vendor",
+            "url": "https://docs.gandi.net/en/gandimail/common_operations/enable_antispoofing_tools.html",
+            "read": "2026-11-20",
+            "quote": "gm3._domainkey 10800 IN CNAME gm3.gandimail.net."
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "gandimail.net",
+            "basis": "vendor",
+            "url": "https://docs.gandi.net/en/gandimail/common_operations/enable_antispoofing_tools.html",
+            "read": "2026-11-20",
+            "quote": "gm1._domainkey 10800 IN CNAME gm1.gandimail.net."
+          }
+        ]
+      }
+    },
+    {
+      "id": "migadu",
+      "name": "Migadu",
+      "mx": {
+        "values": [
+          {
+            "value": "migadu.com",
+            "basis": "vendor",
+            "url": "https://www.migadu.com/api/",
+            "read": "2026-11-20",
+            "quote": "\"value\": \"aspmx1.migadu.com\""
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.migadu.com",
+            "basis": "vendor",
+            "url": "https://www.migadu.com/api/",
+            "read": "2026-11-20",
+            "quote": "\"value\": \"v=spf1 include:spf.migadu.com -all\""
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "key1",
+            "basis": "vendor",
+            "url": "https://www.migadu.com/api/",
+            "read": "2026-11-20",
+            "quote": "\"name\": \"key1._domainkey\", \"type\": \"cname\", \"value\": \"key1.mydomain.org._domainkey.migadu.com.\""
+          },
+          {
+            "value": "key2",
+            "basis": "vendor",
+            "url": "https://www.migadu.com/api/",
+            "read": "2026-11-20",
+            "quote": "\"name\": \"key2._domainkey\", \"type\": \"cname\", \"value\": \"key2.mydomain.org._domainkey.migadu.com.\""
+          },
+          {
+            "value": "key3",
+            "basis": "vendor",
+            "url": "https://www.migadu.com/api/",
+            "read": "2026-11-20",
+            "quote": "\"name\": \"key3._domainkey\", \"type\": \"cname\", \"value\": \"key3.mydomain.org._domainkey.migadu.com.\""
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "migadu.com",
+            "basis": "vendor",
+            "url": "https://www.migadu.com/api/",
+            "read": "2026-11-20",
+            "quote": "\"value\": \"key1.mydomain.org._domainkey.migadu.com.\""
+          }
+        ]
+      }
+    },
+    {
+      "id": "namecheap-private-email",
+      "name": "Namecheap Private Email",
+      "mx": {
+        "values": [
+          {
+            "value": "privateemail.com",
+            "basis": "vendor",
+            "url": "https://www.namecheap.com/support/knowledgebase/article.aspx/1340/2176/namecheap-private-email-records-for-domains-with-thirdparty-dns/",
+            "read": "2026-11-20",
+            "quote": "@ MX 10 mx1.privateemail.com"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.privateemail.com",
+            "basis": "vendor",
+            "url": "https://www.namecheap.com/support/knowledgebase/article.aspx/1340/2176/namecheap-private-email-records-for-domains-with-thirdparty-dns/",
+            "read": "2026-11-20",
+            "quote": "@ TXT v=spf1 include:spf.privateemail.com ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "privateemail",
+            "basis": "vendor",
+            "url": "https://www.namecheap.com/support/knowledgebase/article.aspx/10383/2176/how-to-set-up-a-dkim-record-for-private-email/",
+            "read": "2026-11-20",
+            "quote": "Host : privateemail._domainkey Record type : TXT"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The key is a TXT record, so there is no CNAME target.",
+          "url": "https://www.namecheap.com/support/knowledgebase/article.aspx/10383/2176/how-to-set-up-a-dkim-record-for-private-email/",
+          "read": "2026-11-20"
+        }
+      }
+    },
+    {
+      "id": "purelymail",
+      "name": "Purelymail",
+      "mx": {
+        "values": [
+          {
+            "value": "purelymail.com",
+            "basis": "vendor",
+            "url": "https://purelymail.com/docs/domainDocs",
+            "read": "2026-11-20",
+            "quote": "Put @ on the \"Name\" field and mailserver.purelymail.com on the Mail Server field."
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.purelymail.com",
+            "basis": "vendor",
+            "url": "https://purelymail.com/docs/domainDocs",
+            "read": "2026-11-20",
+            "quote": "Put @ on the \"Name\" field and v=spf1 include:_spf.purelymail.com ~all on the Content field."
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "purelymail1",
+            "basis": "vendor",
+            "url": "https://purelymail.com/docs/domainDocs",
+            "read": "2026-11-20",
+            "quote": "Put purelymail1._domainkey on the \"Name\" field and key1.dkimroot.purelymail.com on the Content field."
+          },
+          {
+            "value": "purelymail2",
+            "basis": "vendor",
+            "url": "https://purelymail.com/docs/domainDocs",
+            "read": "2026-11-20",
+            "quote": "Put purelymail2._domainkey on the \"Name\" field and key2.dkimroot.purelymail.com on the Content field."
+          },
+          {
+            "value": "purelymail3",
+            "basis": "vendor",
+            "url": "https://purelymail.com/docs/domainDocs",
+            "read": "2026-11-20",
+            "quote": "Put purelymail3._domainkey on the \"Name\" field and key3.dkimroot.purelymail.com on the Content field."
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "dkimroot.purelymail.com",
+            "basis": "vendor",
+            "url": "https://purelymail.com/docs/domainDocs",
+            "read": "2026-11-20",
+            "quote": "Put purelymail1._domainkey on the \"Name\" field and key1.dkimroot.purelymail.com on the Content field."
+          }
+        ]
+      }
+    },
+    {
+      "id": "mailbox-org",
+      "name": "mailbox.org",
+      "mx": {
+        "values": [
+          {
+            "value": "mailbox.org",
+            "basis": "vendor",
+            "url": "https://kb.mailbox.org/en/private/custom-domains/using-emails-with-a-custom-domain/",
+            "read": "2026-11-20",
+            "quote": "example-domain.com MX 10 mxext1.mailbox.org."
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "mailbox.org",
+            "basis": "vendor",
+            "url": "https://kb.mailbox.org/en/private/custom-domains/spf-dkim-and-dmarc/",
+            "read": "2026-11-20",
+            "quote": "@ TXT v=spf1 include:mailbox.org ~all SPF"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "mbo0001",
+            "basis": "vendor",
+            "url": "https://kb.mailbox.org/en/private/custom-domains/spf-dkim-and-dmarc/",
+            "read": "2026-11-20",
+            "quote": "MBO0001._domainkey.example.com CNAME MBO0001._domainkey.mailbox.org."
+          },
+          {
+            "value": "mbo0002",
+            "basis": "vendor",
+            "url": "https://kb.mailbox.org/en/private/custom-domains/spf-dkim-and-dmarc/",
+            "read": "2026-11-20",
+            "quote": "MBO0002._domainkey.example.com CNAME MBO0002._domainkey.mailbox.org."
+          },
+          {
+            "value": "mbo0003",
+            "basis": "vendor",
+            "url": "https://kb.mailbox.org/en/private/custom-domains/spf-dkim-and-dmarc/",
+            "read": "2026-11-20",
+            "quote": "MBO0003._domainkey.example.com CNAME MBO0003._domainkey.mailbox.org."
+          },
+          {
+            "value": "mbo0004",
+            "basis": "vendor",
+            "url": "https://kb.mailbox.org/en/private/custom-domains/spf-dkim-and-dmarc/",
+            "read": "2026-11-20",
+            "quote": "MBO0004._domainkey.example.com CNAME MBO0004._domainkey.mailbox.org."
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "mailbox.org",
+            "basis": "vendor",
+            "url": "https://kb.mailbox.org/en/private/custom-domains/spf-dkim-and-dmarc/",
+            "read": "2026-11-20",
+            "quote": "MBO0001._domainkey.example.com CNAME MBO0001._domainkey.mailbox.org."
+          }
+        ]
+      }
+    },
+    {
+      "id": "strato",
+      "name": "Strato",
+      "mx": {
+        "values": [
+          {
+            "value": "rzone.de",
+            "basis": "vendor",
+            "url": "https://www.strato.de/faq/domains/wie-kann-ich-bei-strato-meine-dns-eintraege-verwalten/",
+            "read": "2026-11-20",
+            "quote": "MX-Record : smtpin.rzone.de"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.strato.com",
+            "basis": "vendor",
+            "url": "https://www.strato.de/faq/domains/wie-kann-ich-bei-strato-meine-dns-eintraege-verwalten/",
+            "read": "2026-11-20",
+            "quote": "Sollen die STRATO Mailserver weiterhin E-Mails versenden dürfen, nehmen Sie include:_spf.strato.com in Ihren Eintrag auf."
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "strato-dkim-0002",
+            "basis": "vendor",
+            "url": "https://www.strato.de/faq/domains/wie-kann-ich-bei-strato-meine-dns-eintraege-verwalten/",
+            "read": "2026-11-20",
+            "quote": "strato-dkim-0002._domainkey.meinedomain.tld CNAME strato-dkim-0002._domainkey.rzone.de."
+          },
+          {
+            "value": "strato-dkim-0003",
+            "basis": "vendor",
+            "url": "https://www.strato.de/faq/domains/wie-kann-ich-bei-strato-meine-dns-eintraege-verwalten/",
+            "read": "2026-11-20",
+            "quote": "strato-dkim-0003._domainkey.meinedomain.tld CNAME strato-dkim-0003._domainkey.rzone.de."
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "rzone.de",
+            "basis": "vendor",
+            "url": "https://www.strato.de/faq/domains/wie-kann-ich-bei-strato-meine-dns-eintraege-verwalten/",
+            "read": "2026-11-20",
+            "quote": "strato-dkim-0002._domainkey.meinedomain.tld CNAME strato-dkim-0002._domainkey.rzone.de."
+          }
+        ]
+      }
+    },
+    {
+      "id": "mailerlite",
+      "name": "MailerLite",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.mailerlite.com/help/how-to-authenticate-a-domain-with-cloudflare",
+          "read": "2026-11-20"
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.mailerlite.com/help/how-to-authenticate-a-domain-with-cloudflare",
+          "read": "2026-11-20"
+        }
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "litesrv",
+            "basis": "vendor",
+            "url": "https://www.mailerlite.com/help/how-to-authenticate-a-domain-with-cloudflare",
+            "read": "2026-11-20",
+            "quote": "In the Name field box, add litesrv._domainkey ."
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "mlsend.com",
+            "basis": "vendor",
+            "url": "https://www.mailerlite.com/help/how-to-authenticate-a-domain-with-cloudflare",
+            "read": "2026-11-20",
+            "quote": "In the Target field box, paste the DKIM value litesrv._domainkey.mlsend.com ."
+          }
+        ]
+      }
+    },
+    {
+      "id": "help-scout",
+      "name": "Help Scout",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://docs.helpscout.com/article/666-use-dkim-to-help-with-email-delivery",
+          "read": "2026-11-20"
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "Help Scout says the include:helpscoutemail.com it once asked for can be removed.",
+          "url": "https://docs.helpscout.com/article/58-spf-records",
+          "read": "2026-11-20",
+          "quote": "You can safely remove include:helpscoutemail.com from your SPF record if you added it previously."
+        }
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "strong1",
+            "basis": "vendor",
+            "url": "https://docs.helpscout.com/article/666-use-dkim-to-help-with-email-delivery",
+            "read": "2026-11-20",
+            "quote": "strong1._domainkey.yourdomain.com will point to strong1._domainkey.helpscout.net"
+          },
+          {
+            "value": "strong2",
+            "basis": "vendor",
+            "url": "https://docs.helpscout.com/article/666-use-dkim-to-help-with-email-delivery",
+            "read": "2026-11-20",
+            "quote": "strong2._domainkey.yourdomain.com will point to strong2._domainkey.helpscout.net"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "helpscout.net",
+            "basis": "vendor",
+            "url": "https://docs.helpscout.com/article/666-use-dkim-to-help-with-email-delivery",
+            "read": "2026-11-20",
+            "quote": "strong1._domainkey.yourdomain.com will point to strong1._domainkey.helpscout.net"
+          }
+        ]
+      }
+    },
+    {
+      "id": "constant-contact",
+      "name": "Constant Contact",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://knowledgebase.constantcontact.com/email-digital-marketing/articles/KnowledgeBase/39520-Update-your-DNS-records-through-your-hosting-provider-to-finish-setting-up-self-authentication?lang=en_US",
+          "read": "2026-11-20"
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://knowledgebase.constantcontact.com/email-digital-marketing/articles/KnowledgeBase/39520-Update-your-DNS-records-through-your-hosting-provider-to-finish-setting-up-self-authentication?lang=en_US",
+          "read": "2026-11-20"
+        }
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "ctct1",
+            "basis": "vendor",
+            "url": "https://knowledgebase.constantcontact.com/email-digital-marketing/articles/KnowledgeBase/39520-Update-your-DNS-records-through-your-hosting-provider-to-finish-setting-up-self-authentication?lang=en_US",
+            "read": "2026-11-20",
+            "quote": "For CNAME, the record name should be input as “ctct1._domainkey” and “ctct2_domainkey”"
+          },
+          {
+            "value": "ctct2",
+            "basis": "vendor",
+            "url": "https://knowledgebase.constantcontact.com/email-digital-marketing/articles/KnowledgeBase/39520-Update-your-DNS-records-through-your-hosting-provider-to-finish-setting-up-self-authentication?lang=en_US",
+            "read": "2026-11-20",
+            "quote": "For CNAME, the record name should be input as “ctct1._domainkey” and “ctct2_domainkey”"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "ccsend.com",
+            "basis": "vendor",
+            "url": "https://knowledgebase.constantcontact.com/email-digital-marketing/articles/KnowledgeBase/49735-Troubleshooting-DKIM-self-authentication-using-CNAME-TXT-and-DMARC?lang=en_US",
+            "read": "2026-11-20",
+            "quote": "For CNAME records, it points back to ccsend.com (100._domainkey.dkim1.ccsend.com or 200._domainkey.dkim2.ccsend.com)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "squarespace",
+      "name": "Squarespace Email Campaigns",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://support.squarespace.com/hc/en-us/articles/360001280748-Verify-your-third-party-domain-for-use-with-Email-Campaigns",
+          "read": "2026-11-20"
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://support.squarespace.com/hc/en-us/articles/360001280748-Verify-your-third-party-domain-for-use-with-Email-Campaigns",
+          "read": "2026-11-20"
+        }
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "squarespace",
+            "basis": "vendor",
+            "url": "https://support.squarespace.com/hc/en-us/articles/360001280748-Verify-your-third-party-domain-for-use-with-Email-Campaigns",
+            "read": "2026-11-20",
+            "quote": "CNAME squarespace._domainkey squarespace-domainkey.squarespace-mail.com"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "squarespace-mail.com",
+            "basis": "vendor",
+            "url": "https://support.squarespace.com/hc/en-us/articles/360001280748-Verify-your-third-party-domain-for-use-with-Email-Campaigns",
+            "read": "2026-11-20",
+            "quote": "CNAME squarespace._domainkey squarespace-domainkey.squarespace-mail.com"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mailpoet",
+      "name": "MailPoet",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://kb.mailpoet.com/article/295-spf-dkim-dmarc",
+          "read": "2026-11-20"
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://kb.mailpoet.com/article/295-spf-dkim-dmarc",
+          "read": "2026-11-20"
+        }
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "mailpoet1",
+            "basis": "vendor",
+            "url": "https://kb.mailpoet.com/article/295-spf-dkim-dmarc",
+            "read": "2026-11-20",
+            "quote": "leaving them as ” mailpoet1._domainkey”, “mailpoet2._domainkey”, “_mailpoet”, and “_dmarc”"
+          },
+          {
+            "value": "mailpoet2",
+            "basis": "vendor",
+            "url": "https://kb.mailpoet.com/article/295-spf-dkim-dmarc",
+            "read": "2026-11-20",
+            "quote": "leaving them as ” mailpoet1._domainkey”, “mailpoet2._domainkey”, “_mailpoet”, and “_dmarc”"
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The page names the selectors but not their target.",
+          "url": "https://kb.mailpoet.com/article/295-spf-dkim-dmarc",
+          "read": "2026-11-20"
+        }
+      }
+    },
+    {
+      "id": "emma",
+      "name": "Emma",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://help.myemma.com/s/article/DomainKeys-Identified-Mail-DKIM",
+          "read": "2026-11-20"
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://help.myemma.com/s/article/DomainKeys-Identified-Mail-DKIM",
+          "read": "2026-11-20"
+        }
+      },
+      "dkimSelectors": {
+        "values": [
+          {
+            "value": "e2ma-k1",
+            "basis": "vendor",
+            "url": "https://help.myemma.com/s/article/DomainKeys-Identified-Mail-DKIM",
+            "read": "2026-11-20",
+            "quote": "e2ma-k1._domainkey e2ma-k1.dkim.e2ma.net."
+          },
+          {
+            "value": "e2ma-k2",
+            "basis": "vendor",
+            "url": "https://help.myemma.com/s/article/DomainKeys-Identified-Mail-DKIM",
+            "read": "2026-11-20",
+            "quote": "e2ma-k2._domainkey e2ma-k2.dkim.e2ma.net."
+          },
+          {
+            "value": "e2ma-k3",
+            "basis": "vendor",
+            "url": "https://help.myemma.com/s/article/DomainKeys-Identified-Mail-DKIM",
+            "read": "2026-11-20",
+            "quote": "e2ma-k3._domainkey e2ma-k3.dkim.e2ma.net."
+          }
+        ]
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "dkim.e2ma.net",
+            "basis": "vendor",
+            "url": "https://help.myemma.com/s/article/DomainKeys-Identified-Mail-DKIM",
+            "read": "2026-11-20",
+            "quote": "e2ma-k1._domainkey e2ma-k1.dkim.e2ma.net."
+          }
+        ]
+      }
+    },
+    {
+      "id": "yandex-360",
+      "name": "Yandex 360",
+      "mx": {
+        "values": [
+          {
+            "value": "mx.yandex.net",
+            "basis": "vendor",
+            "url": "https://yandex.com/support/yandex-360/business/admin/en/domains/dns/mx.html",
+            "read": "2026-11-24",
+            "quote": "Value — mx.yandex.net."
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.yandex.net",
+            "basis": "vendor",
+            "url": "https://yandex.com/support/yandex-360/business/admin/en/domains/dns/spf.html",
+            "read": "2026-11-24",
+            "quote": "v=spf1 ip4:IP-1 ip4:IP-2 ip4:IP-3 include:_spf.yandex.net ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "mail is Brevo’s older selector too, so it is tried but names no provider.",
+          "url": "https://yandex.com/support/yandex-360/business/admin/en/domains/dns/dkim.html",
+          "read": "2026-11-24",
+          "quote": "Subdomain name (or Host ) — mail._domainkey ."
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The key is a TXT record, so there is no CNAME target.",
+          "url": "https://yandex.com/support/yandex-360/business/admin/en/domains/dns/dkim.html",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "tencent-exmail",
+      "name": "Tencent Exmail",
+      "mx": {
+        "values": [
+          {
+            "value": "mxbiz1.qq.com",
+            "basis": "vendor",
+            "url": "https://open.work.weixin.qq.com/help2/pc/14447",
+            "read": "2026-11-24",
+            "quote": "Record value: mxbiz1.qq.com; priority: 5 Record value: mxbiz2.qq.com; priority: 10"
+          },
+          {
+            "value": "mxbiz2.qq.com",
+            "basis": "vendor",
+            "url": "https://open.work.weixin.qq.com/help2/pc/14447",
+            "read": "2026-11-24",
+            "quote": "Record value: mxbiz1.qq.com; priority: 5 Record value: mxbiz2.qq.com; priority: 10"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.mail.qq.com",
+            "basis": "vendor",
+            "url": "https://open.work.weixin.qq.com/help2/pc/19817",
+            "read": "2026-11-24",
+            "quote": "The TXT record value is: v=spf1 include:spf.mail.qq.com ~all."
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://open.work.weixin.qq.com/help2/pc/19817",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://open.work.weixin.qq.com/help2/pc/19817",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "alibaba-mail",
+      "name": "Alibaba Mail",
+      "mx": {
+        "values": [
+          {
+            "value": "qiye.aliyun.com",
+            "basis": "vendor",
+            "url": "https://help.aliyun.com/zh/document_detail/36723.html",
+            "read": "2026-11-24",
+            "quote": "@ MX 5 mx1.qiye.aliyun.com @ MX 10 mx2.qiye.aliyun.com @ MX 15 mx3.qiye.aliyun.com"
+          },
+          {
+            "value": "mxhichina.com",
+            "basis": "vendor",
+            "url": "https://help.aliyun.com/zh/document_detail/36723.html",
+            "read": "2026-11-24",
+            "quote": "@ MX 5 mxn.mxhichina.com @ MX 10 mxw.mxhichina.com"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.qiye.aliyun.com",
+            "basis": "vendor",
+            "url": "https://help.aliyun.com/zh/document_detail/36723.html",
+            "read": "2026-11-24",
+            "quote": "@ TXT v=spf1 include:spf.qiye.aliyun.com -all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "default is cPanel’s selector too, so it is tried but names no provider.",
+          "url": "https://help.aliyun.com/zh/document_detail/36723.html",
+          "read": "2026-11-24",
+          "quote": "default._domainkey TXT"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The key is a TXT record, so there is no CNAME target.",
+          "url": "https://help.aliyun.com/zh/document_detail/36723.html",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "ovhcloud",
+      "name": "OVHcloud",
+      "mx": {
+        "values": [
+          {
+            "value": "mail.ovh.net",
+            "basis": "vendor",
+            "url": "https://docs.ovhcloud.com/en/guides/web-cloud/domains/dns-zone-mx",
+            "read": "2026-11-24",
+            "quote": "@ 3600 MX 1 mx0.mail.ovh.net. @ 3600 MX 5 mx1.mail.ovh.net."
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "mx.ovh.com",
+            "basis": "vendor",
+            "url": "https://docs.ovhcloud.com/en/guides/web-cloud/domains/dns-zone-spf",
+            "read": "2026-11-24",
+            "quote": "For example, the OVHcloud SPF is: v=spf1 include:mx.ovh.com ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "The selector is the customer’s own, so no list can hold it; a key under one typed is the provider’s by its CNAME target.",
+          "url": "https://docs.ovhcloud.com/en/guides/web-cloud/domains/dns-zone-dkim",
+          "read": "2026-11-24",
+          "quote": "\"selectorName\": \"ovhmo3456789-selector1\""
+        }
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "dkim.mail.ovh.net",
+            "basis": "vendor",
+            "url": "https://docs.ovhcloud.com/en/guides/web-cloud/domains/dns-zone-dkim",
+            "read": "2026-11-24",
+            "quote": "ovhmo3456789-selector1._domainkey.domain.tld CNAME ovhmo3456789-selector1._domainkey.123403.aj.dkim.mail.ovh.net."
+          }
+        ]
+      }
+    },
+    {
+      "id": "hover",
+      "name": "Hover",
+      "mx": {
+        "values": [
+          {
+            "value": "mx.hover.com.cust.hostedemail.com",
+            "basis": "vendor",
+            "url": "https://support.hover.com/support/solutions/articles/201000064726",
+            "read": "2026-11-24",
+            "quote": "Mail server mx.hover.com.cust.hostedemail.com"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "Every Tucows reseller gives this include, so it names no one; the check writes it only for a domain with Hover’s MX and no SPF.",
+          "url": "https://support.hover.com/support/solutions/articles/201000064663",
+          "read": "2026-11-24",
+          "quote": "Here is the most common SPF record used at Hover: v=spf1 include:_spf.hostedemail.com ~all"
+        }
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://support.hover.com/support/solutions/articles/201000064663",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://support.hover.com/support/solutions/articles/201000064663",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "vk-workspace",
+      "name": "VK WorkSpace",
+      "mx": {
+        "values": [
+          {
+            "value": "emx.mail.ru",
+            "basis": "vendor",
+            "url": "https://workspace.vk.ru/docs/saas/WorkMail/Startup/mx-record/",
+            "read": "2026-11-24",
+            "quote": "Значение : emx.mail.ru"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.mail.ru",
+            "basis": "vendor",
+            "url": "https://workspace.vk.ru/docs/saas/WorkMail/Startup/spf-record/",
+            "read": "2026-11-24",
+            "quote": "v=spf1 redirect=_spf.mail.ru"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://workspace.vk.ru/docs/saas/WorkMail/Startup/spf-record/",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://workspace.vk.ru/docs/saas/WorkMail/Startup/spf-record/",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "rackspace",
+      "name": "Rackspace Email",
+      "mx": {
+        "values": [
+          {
+            "value": "emailsrvr.com",
+            "basis": "vendor",
+            "url": "https://docs.rackspace.com/docs/set-up-dns-records-for-cloud-office-email",
+            "read": "2026-11-24",
+            "quote": "MX @ or left blank mx1.emailsrvr.com 10"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "emailsrvr.com",
+            "basis": "vendor",
+            "url": "https://docs.rackspace.com/docs/set-up-dns-records-for-cloud-office-email",
+            "read": "2026-11-24",
+            "quote": "TXT @ or left blank v=spf1 include:emailsrvr.com ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://docs.rackspace.com/docs/set-up-dns-records-for-cloud-office-email",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://docs.rackspace.com/docs/set-up-dns-records-for-cloud-office-email",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://help.salesforce.com/s/articleView?id=000006347&type=1",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.salesforce.com",
+            "basis": "vendor",
+            "url": "https://help.salesforce.com/s/articleView?id=000006347&type=1",
+            "read": "2026-11-24",
+            "quote": "The appropriate entry to include in your SPF record when sending mail from the Salesforce application is _spf.salesforce.com."
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "The selector is the customer’s own, so no list can hold it; a key under one typed is the provider’s by its CNAME target.",
+          "url": "https://help.salesforce.com/s/articleView?id=sf.emailadmin_create_secure_dkim.htm&type=5",
+          "read": "2026-11-24",
+          "quote": "example-sf-a._domainkey.example.com."
+        }
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "custdkim.salesforce.com",
+            "basis": "vendor",
+            "url": "https://help.salesforce.com/s/articleView?id=sf.emailadmin_create_secure_dkim.htm&type=5",
+            "read": "2026-11-24",
+            "quote": "example-sf-a._domainkey.example.com. 3600 IN CNAME example-sf-a.k4tyd2.custdkim.salesforce.com."
+          }
+        ]
+      }
+    },
+    {
+      "id": "aruba",
+      "name": "Aruba",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://guide.aruba.it/hosting-e-domini/email/gestione-email/sicurezza-e-storico-accessi/usare-spf",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.aruba.it",
+            "basis": "vendor",
+            "url": "https://guide.aruba.it/hosting-e-domini/email/gestione-email/sicurezza-e-storico-accessi/usare-spf",
+            "read": "2026-11-24",
+            "quote": "Se invii email esclusivamente attraverso i server di posta Aruba, puoi utilizzare il seguente record SPF: v=spf1 include:_spf.aruba.it -all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "a1 is a short name other servers may use, so it is tried but names no provider.",
+          "url": "https://guide.aruba.it/hosting-e-domini/email/gestione-email/sicurezza-e-storico-accessi/usare-dkim",
+          "read": "2026-11-20",
+          "quote": "il selector utilizzato è a1"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://guide.aruba.it/hosting-e-domini/email/gestione-email/sicurezza-e-storico-accessi/usare-dkim",
+          "read": "2026-11-20"
+        }
+      }
+    },
+    {
+      "id": "register-nominalia",
+      "name": "Register.it and Nominalia",
+      "mx": {
+        "values": [
+          {
+            "value": "mail.register.it",
+            "basis": "vendor",
+            "url": "https://www.register.it/assistenza/problemi-con-le-email/",
+            "read": "2026-11-24",
+            "quote": "Hai impostato i DNS di Register.it e hai il record MX “mail.register.it”?"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "A domain on Amen’s name servers gives this include too, as seen in DNS, so it names no one; the check writes it only for a domain with Register.it’s MX and no SPF.",
+          "url": "https://www.register.it/help/spf-dkim-gmail/",
+          "read": "2026-11-24",
+          "quote": "VALORE SPF di Register Spa: \"v=spf1 include:spf.webapps.net ~all\""
+        }
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "A selector of its own that the check does not try; a key there is found when typed, and is the provider’s by its CNAME target.",
+          "url": "https://www.nominalia.com/help/dns-email-como-crear-registros-spf-dkim-y-dmarc/",
+          "read": "2026-11-24",
+          "quote": "Nombre: key-nomi001._domainkey.midominio.com"
+        }
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "securemail.pro",
+            "basis": "vendor",
+            "url": "https://www.nominalia.com/help/dns-email-como-crear-registros-spf-dkim-y-dmarc/",
+            "read": "2026-11-24",
+            "quote": "Nombre: key-nomi001._domainkey.midominio.com Tipo: CNAME Valor: key-nomi001._domainkey.securemail.pro"
+          }
+        ]
+      }
+    },
+    {
+      "id": "infomaniak",
+      "name": "Infomaniak",
+      "mx": {
+        "values": [
+          {
+            "value": "mta-gw.infomaniak.ch",
+            "basis": "vendor",
+            "url": "https://www.infomaniak.com/en/support/faq/2110/manage-mx-records",
+            "read": "2026-11-24",
+            "quote": "Target: mta-gw.infomaniak.ch Priority: 5"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.infomaniak.ch",
+            "basis": "vendor",
+            "url": "https://www.infomaniak.com/en/support/faq/2199/manage-spf-records",
+            "read": "2026-11-24",
+            "quote": "Infomaniak automatically installs this type of record when creating a Mail Service on your domain (strict SPF): v=spf1 include:spf.infomaniak.ch -all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.infomaniak.com/en/support/faq/2199/manage-spf-records",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.infomaniak.com/en/support/faq/2199/manage-spf-records",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "locaweb",
+      "name": "Locaweb",
+      "mx": {
+        "values": [
+          {
+            "value": "locaweb.com.br",
+            "basis": "vendor",
+            "url": "https://www.locaweb.com.br/ajuda/wiki/como-configurar-o-mx-e-mail-locaweb/",
+            "read": "2026-11-24",
+            "quote": ". MX 10 mx.b.locaweb.com.br . MX 10 mx.core.locaweb.com.br . MX 20 mx.a.locaweb.com.br . MX 20 mx.jk.locaweb.com.br"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.locaweb.com.br",
+            "basis": "vendor",
+            "url": "https://www.locaweb.com.br/ajuda/wiki/como-configurar-o-mx-e-mail-locaweb/",
+            "read": "2026-11-24",
+            "quote": ". TXT 0 v=spf1 include:_spf.locaweb.com.br -all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.locaweb.com.br/ajuda/wiki/como-configurar-o-mx-e-mail-locaweb/",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.locaweb.com.br/ajuda/wiki/como-configurar-o-mx-e-mail-locaweb/",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "transip",
+      "name": "TransIP",
+      "mx": {
+        "values": [
+          {
+            "value": "mx.transip.email",
+            "basis": "vendor",
+            "url": "https://www.transip.eu/knowledgebase/527-the-dns-settings-web-hosting/",
+            "read": "2026-11-24",
+            "quote": "Name: @ Type: MX Value: 10 mx.transip.email."
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.transip.email",
+            "basis": "vendor",
+            "url": "https://www.transip.eu/knowledgebase/527-the-dns-settings-web-hosting/",
+            "read": "2026-11-24",
+            "quote": "Name: @ Type: TXT Value: v=spf1 include:_spf.transip.email ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "A selector of its own that the check does not try; a key there is found when typed, and is the provider’s by its CNAME target.",
+          "url": "https://www.transip.eu/knowledgebase/527-the-dns-settings-web-hosting/",
+          "read": "2026-11-24",
+          "quote": "Name: transip-A._domainkey"
+        }
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "transip.email",
+            "basis": "vendor",
+            "url": "https://www.transip.eu/knowledgebase/527-the-dns-settings-web-hosting/",
+            "read": "2026-11-24",
+            "quote": "Name: transip-A._domainkey Type: CNAME Value: _dkim-A.transip.email."
+          }
+        ]
+      }
+    },
+    {
+      "id": "netcup",
+      "name": "netcup",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "The page’s MX stands for the customer’s own mail server.",
+          "url": "https://www.netcup.com/en/helpcenter/documentation/web-hosting/webhosting-dns",
+          "read": "2026-11-24",
+          "quote": "Destination: mx1.netcup.net ( mx1.netcup.net is to be replaced with the mail server address )"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.webhosting.systems",
+            "basis": "vendor",
+            "url": "https://www.netcup.com/en/helpcenter/documentation/web-hosting/webhosting-dns",
+            "read": "2026-11-24",
+            "quote": "Host: @ Type: TXT Destination: v=spf1 mx a include:_spf.webhosting.systems ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "key1 and key2 are tried on every check as Migadu’s, so a key there names no provider, not even through netcup’s CNAME target.",
+          "url": "https://www.netcup.com/en/helpcenter/documentation/web-hosting/webhosting-dns",
+          "read": "2026-11-24",
+          "quote": "Host: key1._domainkey Type: CNAME"
+        }
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "webhosting.systems",
+            "basis": "vendor",
+            "url": "https://www.netcup.com/en/helpcenter/documentation/web-hosting/webhosting-dns",
+            "read": "2026-11-24",
+            "quote": "Host: key1._domainkey Type: CNAME Destination: key1._domainkey.webhosting.systems"
+          }
+        ]
+      }
+    },
+    {
+      "id": "all-inkl",
+      "name": "ALL-INKL.COM",
+      "mx": {
+        "values": [
+          {
+            "value": "kasserver.com",
+            "basis": "vendor",
+            "url": "https://all-inkl.com/en/support/tutorials/kas/tools/dns-tools/how-to-change-the-mx-record-using-a-host-address_154.html",
+            "read": "2026-11-24",
+            "quote": "delete the default MX record that points to <your-login>.kasserver.com"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.kasserver.com",
+            "basis": "vendor",
+            "url": "https://all-inkl.com/en/support/tutorials/kas/tools/dns-tools/how-to-add-an-spf-record_482.html",
+            "read": "2026-11-24",
+            "quote": "Example entry: yourdomain.com. IN TXT \"v=spf1 a mx include:spf.kasserver.com ~all\""
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://all-inkl.com/en/support/tutorials/kas/tools/dns-tools/how-to-add-an-spf-record_482.html",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://all-inkl.com/en/support/tutorials/kas/tools/dns-tools/how-to-add-an-spf-record_482.html",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "cyber-folks",
+      "name": "cyber_Folks",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://cyberfolks.pl/pomoc/weryfikacja-nadawcy-wiadomosci-spf-dkim-dmarc/",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.cyberfolks.pl",
+            "basis": "vendor",
+            "url": "https://cyberfolks.pl/pomoc/weryfikacja-nadawcy-wiadomosci-spf-dkim-dmarc/",
+            "read": "2026-11-24",
+            "quote": "twojadomena.pl TXT v=spf1 a mx include:_spf.cyberfolks.pl -all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "x is DirectAdmin’s default selector too, so it is tried but names no provider.",
+          "url": "https://cyberfolks.pl/pomoc/weryfikacja-nadawcy-wiadomosci-spf-dkim-dmarc/",
+          "read": "2026-11-24",
+          "quote": "selektora: w przypadku naszych serwerów jest to x"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The key is a TXT record, so there is no CNAME target.",
+          "url": "https://cyberfolks.pl/pomoc/weryfikacja-nadawcy-wiadomosci-spf-dkim-dmarc/",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "godaddy",
+      "name": "GoDaddy",
+      "mx": {
+        "values": [
+          {
+            "value": "smtp.secureserver.net",
+            "basis": "vendor",
+            "url": "https://www.godaddy.com/es-es/help/what-are-my-dns-settings-for-professional-email-powered-by-titan-42767",
+            "read": "2026-11-24",
+            "quote": "the MX and TXT records are the same for all users and should be as follows: 2 MX records: Host Prioridad Objetivo @ 0 smtp.secureserver.net @ 10 mailstore1.secureserver.net"
+          },
+          {
+            "value": "mailstore1.secureserver.net",
+            "basis": "vendor",
+            "url": "https://www.godaddy.com/es-es/help/what-are-my-dns-settings-for-professional-email-powered-by-titan-42767",
+            "read": "2026-11-24",
+            "quote": "the MX and TXT records are the same for all users and should be as follows: 2 MX records: Host Prioridad Objetivo @ 0 smtp.secureserver.net @ 10 mailstore1.secureserver.net"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "secureserver.net",
+            "basis": "vendor",
+            "url": "https://www.godaddy.com/es-es/help/what-are-my-dns-settings-for-professional-email-powered-by-titan-42767",
+            "read": "2026-11-24",
+            "quote": "1 TXT record for SPF: Nombre Valor TXT @ v=spf1 include:secureserver.net -all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "A selector of its own that the check does not try; a key there is found when typed, and is the provider’s by its CNAME target.",
+          "url": "https://www.godaddy.com/es-es/help/agregar-spf-dkim-y-dmarc-a-mi-dominio-para-professional-email-powered-by-titan-42437",
+          "read": "2026-11-24",
+          "quote": "Nombre : Entrar secureserver1._domainkey ."
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "Each CNAME’s target is shown in the account; the page gives no common part.",
+          "url": "https://www.godaddy.com/es-es/help/agregar-spf-dkim-y-dmarc-a-mi-dominio-para-professional-email-powered-by-titan-42437",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "arsys",
+      "name": "Arsys",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "Only an example in a general article on DNS, not a page of the mail’s values.",
+          "url": "https://www.arsys.es/soporte#/articles/servidores-dns-y-entradas-dns-que-son-y-como-funcionan----53c4623e-3c9b-4817-8eee-5cf807dfd224",
+          "read": "2026-11-24",
+          "quote": "tudominio.com MX 10 mx.serviciodecorreo.es"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.serviciodecorreo.es",
+            "basis": "vendor",
+            "url": "https://www.arsys.es/soporte#/articles/que-es-dmarc-y-como-activarlo----077d07ea-9751-4f80-abcc-36f6cd8d7fe6",
+            "read": "2026-11-24",
+            "quote": "Busca una entrada de tipo TXT con el siguiente valor: v=spf1 include:_spf.serviciodecorreo.es ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.arsys.es/soporte#/articles/que-es-dmarc-y-como-activarlo----077d07ea-9751-4f80-abcc-36f6cd8d7fe6",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.arsys.es/soporte#/articles/que-es-dmarc-y-como-activarlo----077d07ea-9751-4f80-abcc-36f6cd8d7fe6",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "hostnet",
+      "name": "Hostnet",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "Only for its old platform; the page says the new one has another MX, shown in the account.",
+          "url": "https://helpdesk.hostnet.nl/hc/nl-nl/articles/360014900838-Domeinnaam-koppelen-aan-Wix",
+          "read": "2026-11-24",
+          "quote": "mailfilter.hostnet.nl Let op : Als je naar het nieuwe platform bent overgezet dan geldt er een ander MX-record."
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.hostnet.nl",
+            "basis": "vendor",
+            "url": "https://helpdesk.hostnet.nl/hc/nl-nl/articles/360015823697-Welk-SPF-record-kan-ik-instellen-als-ik-e-mails-verstuur-via-het-platform-van-Hostnet",
+            "read": "2026-11-24",
+            "quote": "Met het volgende SPF-record zorg je dat jouw domein alleen e-mails verzendt vanaf het platform van Hostnet: v=spf1 a mx include:_spf.hostnet.nl -all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://helpdesk.hostnet.nl/hc/nl-nl/articles/360015823697-Welk-SPF-record-kan-ik-instellen-als-ik-e-mails-verstuur-via-het-platform-van-Hostnet",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://helpdesk.hostnet.nl/hc/nl-nl/articles/360015823697-Welk-SPF-record-kan-ik-instellen-als-ik-e-mails-verstuur-via-het-platform-van-Hostnet",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "antagonist",
+      "name": "Antagonist",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The default MX points to mail. under the customer’s own domain.",
+          "url": "https://help.antagonist.nl/hc/nl/articles/8523986825617-Hoe-beheer-ik-DNS-records-in-DirectAdmin",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.webhostingserver.nl",
+            "basis": "vendor",
+            "url": "https://help.antagonist.nl/hc/nl/articles/8523986825617-Hoe-beheer-ik-DNS-records-in-DirectAdmin",
+            "read": "2026-11-24",
+            "quote": "voorbeeld.nl. TXT \"v=spf1 include:_spf.webhostingserver.nl ~all\""
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "A selector of its own that the check does not try; a key there is found when typed, and is the provider’s by its CNAME target.",
+          "url": "https://help.antagonist.nl/hc/nl/articles/8523986825617-Hoe-beheer-ik-DNS-records-in-DirectAdmin",
+          "read": "2026-11-24",
+          "quote": "whs1._domainkey CNAME"
+        }
+      },
+      "dkimTargets": {
+        "values": [
+          {
+            "value": "dkim.webhostingserver.nl",
+            "basis": "vendor",
+            "url": "https://help.antagonist.nl/hc/nl/articles/8523986825617-Hoe-beheer-ik-DNS-records-in-DirectAdmin",
+            "read": "2026-11-24",
+            "quote": "whs1._domainkey CNAME abcdef12345hijklmnop.whs1.dkim.webhostingserver.nl."
+          }
+        ]
+      }
+    },
+    {
+      "id": "namecheap-email-forwarding",
+      "name": "Namecheap Email Forwarding",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The MX records are set automatically; the page does not name them.",
+          "url": "https://www.namecheap.com/support/knowledgebase/article.aspx/308/2214/how-to-set-up-free-email-forwarding/",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.efwd.registrar-servers.com",
+            "basis": "dns",
+            "read": "2026-11-24",
+            "seenOn": [
+              "easywp.com"
+            ]
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.namecheap.com/support/knowledgebase/article.aspx/308/2214/how-to-set-up-free-email-forwarding/",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.namecheap.com/support/knowledgebase/article.aspx/308/2214/how-to-set-up-free-email-forwarding/",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "mimecast",
+      "name": "Mimecast",
+      "mx": {
+        "values": [
+          {
+            "value": "mimecast.com",
+            "basis": "vendor",
+            "url": "https://mimecastsupport.zendesk.com/hc/en-us/articles/34000417366675",
+            "read": "2026-11-24",
+            "quote": "MX records (inbound) Europe (Excluding Germany) eu-smtp-inbound-1.mimecast.com eu-smtp-inbound-2.mimecast.com"
+          },
+          {
+            "value": "mimecast.co.za",
+            "basis": "vendor",
+            "url": "https://mimecastsupport.zendesk.com/hc/en-us/articles/34000417366675",
+            "read": "2026-11-24",
+            "quote": "South Africa za-smtp-inbound-1.mimecast.co.za za-smtp-inbound-2.mimecast.co.za"
+          },
+          {
+            "value": "mimecast-offshore.com",
+            "basis": "vendor",
+            "url": "https://mimecastsupport.zendesk.com/hc/en-us/articles/34000417366675",
+            "read": "2026-11-24",
+            "quote": "Offshore je-smtp-inbound-1.mimecast-offshore.com je-smtp-inbound-2.mimecast-offshore.com"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_netblocks.mimecast.com",
+            "basis": "vendor",
+            "url": "https://mimecastsupport.zendesk.com/hc/en-us/articles/34000792642963",
+            "read": "2026-11-24",
+            "quote": "Global (includes all the above) v=spf1 include:_netblocks.mimecast.com ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://mimecastsupport.zendesk.com/hc/en-us/articles/34000417366675",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://mimecastsupport.zendesk.com/hc/en-us/articles/34000417366675",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "barracuda",
+      "name": "Barracuda Email Gateway Defense",
+      "mx": {
+        "values": [
+          {
+            "value": "ess.barracudanetworks.com",
+            "basis": "vendor",
+            "url": "https://documentation.campus.barracuda.com/wiki/spaces/EGD/pages/2851259",
+            "read": "2026-11-24",
+            "quote": "mydomain.com. 21600 IN MX 99 xxxxxxx.ess.barracudanetworks.com."
+          },
+          {
+            "value": "ess.de.barracudanetworks.com",
+            "basis": "dns",
+            "read": "2026-11-24",
+            "seenOn": [
+              "myhermes.de",
+              "unesco.de"
+            ]
+          },
+          {
+            "value": "ess.uk.barracudanetworks.com",
+            "basis": "dns",
+            "read": "2026-11-24",
+            "seenOn": [
+              "britishmuseum.org",
+              "essex.ac.uk"
+            ]
+          },
+          {
+            "value": "ess.au.barracudanetworks.com",
+            "basis": "dns",
+            "read": "2026-11-24",
+            "seenOn": [
+              "une.edu.au"
+            ]
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.ess.barracudanetworks.com",
+            "basis": "vendor",
+            "url": "https://documentation.campus.barracuda.com/wiki/spaces/EGD/pages/2855134",
+            "read": "2026-11-24",
+            "quote": "US (United States) include:spf.ess.barracudanetworks.com -all"
+          },
+          {
+            "value": "spf.ess.au.barracudanetworks.com",
+            "basis": "vendor",
+            "url": "https://documentation.campus.barracuda.com/wiki/spaces/EGD/pages/2855134",
+            "read": "2026-11-24",
+            "quote": "AU (Australia) include:spf.ess.au.barracudanetworks.com -all"
+          },
+          {
+            "value": "spf.ess.ca.barracudanetworks.com",
+            "basis": "vendor",
+            "url": "https://documentation.campus.barracuda.com/wiki/spaces/EGD/pages/2855134",
+            "read": "2026-11-24",
+            "quote": "CA (Canada) include:spf.ess.ca.barracudanetworks.com -all"
+          },
+          {
+            "value": "spf.ess.de.barracudanetworks.com",
+            "basis": "vendor",
+            "url": "https://documentation.campus.barracuda.com/wiki/spaces/EGD/pages/2855134",
+            "read": "2026-11-24",
+            "quote": "DE (Germany) include:spf.ess.de.barracudanetworks.com -all"
+          },
+          {
+            "value": "spf.ess.in.barracudanetworks.com",
+            "basis": "vendor",
+            "url": "https://documentation.campus.barracuda.com/wiki/spaces/EGD/pages/2855134",
+            "read": "2026-11-24",
+            "quote": "IN (India) include:spf.ess.in.barracudanetworks.com -all"
+          },
+          {
+            "value": "spf.ess.uk.barracudanetworks.com",
+            "basis": "vendor",
+            "url": "https://documentation.campus.barracuda.com/wiki/spaces/EGD/pages/2855134",
+            "read": "2026-11-24",
+            "quote": "UK (United Kingdom) include:spf.ess.uk.barracudanetworks.com -all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://documentation.campus.barracuda.com/wiki/spaces/EGD/pages/2851259",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://documentation.campus.barracuda.com/wiki/spaces/EGD/pages/2851259",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "hornetsecurity",
+      "name": "Hornetsecurity",
+      "mx": {
+        "values": [
+          {
+            "value": "hornetsecurity.com",
+            "basis": "vendor",
+            "url": "https://www.hornetsecurity.com/en/onboarding-information/",
+            "read": "2026-11-24",
+            "quote": "MX priority 10 mx01.hornetsecurity.com MX priority 20 mx02.hornetsecurity.com MX priority 30 mx03.hornetsecurity.com MX priority 40 mx04.hornetsecurity.com"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.hornetsecurity.com",
+            "basis": "vendor",
+            "url": "https://www.hornetsecurity.com/en/onboarding-information/",
+            "read": "2026-11-24",
+            "quote": "The following setting is recommended: v=spf1 include:spf.hornetsecurity.com ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.hornetsecurity.com/en/onboarding-information/",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.hornetsecurity.com/en/onboarding-information/",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "cisco-secure-email",
+      "name": "Cisco Secure Email",
+      "mx": {
+        "values": [
+          {
+            "value": "iphmx.com",
+            "basis": "vendor",
+            "url": "https://docs.ces.cisco.com/docs/hostnames",
+            "read": "2026-11-24",
+            "quote": "mx1.<alloc>(.<region>).iphmx.com “mx1” will list all IP Addresses used in the MX Records"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://docs.ces.cisco.com/docs/hostnames",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://docs.ces.cisco.com/docs/hostnames",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://docs.ces.cisco.com/docs/hostnames",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "marketo",
+      "name": "Adobe Marketo Engage",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/deliverability/set-up-spf-and-dkim-for-your-email-deliverability",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "mktomail.com",
+            "basis": "vendor",
+            "url": "https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/deliverability/set-up-spf-and-dkim-for-your-email-deliverability",
+            "read": "2026-11-24",
+            "quote": "[domain] IN TXT v=spf1 mx ip4:[corpIP] include:mktomail.com ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/deliverability/set-up-spf-and-dkim-for-your-email-deliverability",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/deliverability/set-up-spf-and-dkim-for-your-email-deliverability",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "elastic-email",
+      "name": "Elastic Email",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://help.elasticemail.com/en/articles/4934400-how-to-verify-your-domain",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.elasticemail.com",
+            "basis": "vendor",
+            "url": "https://help.elasticemail.com/en/articles/4934400-how-to-verify-your-domain",
+            "read": "2026-11-24",
+            "quote": "Value: v=spf1 a mx include:_spf.elasticemail.com ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "The check does not try api; a key there is found when typed, and names no provider, as it has no CNAME target.",
+          "url": "https://help.elasticemail.com/en/articles/4934400-how-to-verify-your-domain",
+          "read": "2026-11-24",
+          "quote": "DKIM (TXT): Host/Name: api._domainkey.sub"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The key is a TXT record, so there is no CNAME target.",
+          "url": "https://help.elasticemail.com/en/articles/4934400-how-to-verify-your-domain",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "mailchannels",
+      "name": "MailChannels",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://docs.mailchannels.com/outbound/spf-records.md",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "relay.mailchannels.net",
+            "basis": "vendor",
+            "url": "https://docs.mailchannels.com/outbound/spf-records.md",
+            "read": "2026-11-24",
+            "quote": "If you already have an SPF record, add `include:relay.mailchannels.net` to it"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://docs.mailchannels.com/outbound/spf-records.md",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://docs.mailchannels.com/outbound/spf-records.md",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "activecampaign",
+      "name": "ActiveCampaign",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://help.activecampaign.com/hc/en-us/articles/13063110494364",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "emsd1.com",
+            "basis": "vendor",
+            "url": "https://help.activecampaign.com/hc/en-us/articles/13063110494364",
+            "read": "2026-11-24",
+            "quote": "How to add ActiveCampaign’s include (include:emsd1.com) to an existing SPF record?"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "Its page makes the include optional, so a list would ask about a key in use; acdkim1 is tried and names who uses it.",
+          "url": "https://help.activecampaign.com/hc/en-us/articles/360015584680-Set-up-your-sending-domain",
+          "read": "2026-11-20",
+          "quote": "like acdkim1._domainkey (most common)"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://help.activecampaign.com/hc/en-us/articles/360015584680-Set-up-your-sending-domain",
+          "read": "2026-11-20"
+        }
+      }
+    },
+    {
+      "id": "hostgator-brasil",
+      "name": "HostGator Brasil",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "note": "The MX is mail. under the customer’s own domain.",
+          "url": "https://suporte.hostgator.com.br/hc/pt-br/articles/30817482782099-Como-usar-o-e-mail-na-HostGator-e-o-site-em-outro-provedor",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "HostGator in the US and Bluehost give this include too, so it names no one.",
+          "url": "https://suporte.hostgator.com.br/hc/pt-br/articles/30817482782099-Como-usar-o-e-mail-na-HostGator-e-o-site-em-outro-provedor",
+          "read": "2026-11-24",
+          "quote": "seudominio.com.br TXT v=spf1 a mx include:websitewelcome.com ~ all"
+        }
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://suporte.hostgator.com.br/hc/pt-br/articles/30817482782099-Como-usar-o-e-mail-na-HostGator-e-o-site-em-outro-provedor",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://suporte.hostgator.com.br/hc/pt-br/articles/30817482782099-Como-usar-o-e-mail-na-HostGator-e-o-site-em-outro-provedor",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "hetzner",
+      "name": "Hetzner",
+      "mx": {
+        "values": [
+          {
+            "value": "your-server.de",
+            "basis": "vendor",
+            "url": "https://docs.hetzner.com/de/managed/domain-and-dns/dnsadministration/",
+            "read": "2026-11-24",
+            "quote": "@ IN MX 10 <server name>.your-server.de."
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://docs.hetzner.com/de/managed/domain-and-dns/dnsadministration/",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://docs.hetzner.com/de/managed/domain-and-dns/dnsadministration/",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://docs.hetzner.com/de/managed/domain-and-dns/dnsadministration/",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "host-europe",
+      "name": "Host Europe",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.hosteurope.de/faq/domains/verwaltung/spf_dkim_classic_hosting/",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.server-he.de",
+            "basis": "vendor",
+            "url": "https://www.hosteurope.de/faq/domains/verwaltung/spf_dkim_classic_hosting/",
+            "read": "2026-11-24",
+            "quote": "Der Standard SPF-Record für die Classic Hosting Domains lautet: v=spf1 a mx include:spf.server-he.de -all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.hosteurope.de/faq/domains/verwaltung/spf_dkim_classic_hosting/",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://www.hosteurope.de/faq/domains/verwaltung/spf_dkim_classic_hosting/",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "o2switch",
+      "name": "o2switch",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://faq.o2switch.fr/cpanel/emails/delivrabilite-spf-dkim/",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.jabatus.fr",
+            "basis": "vendor",
+            "url": "https://faq.o2switch.fr/cpanel/emails/delivrabilite-spf-dkim/",
+            "read": "2026-11-24",
+            "quote": "Le seul SPF à utiliser pour envoyer des e-mails depuis nos services est : include:spf.jabatus.fr"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://faq.o2switch.fr/cpanel/emails/delivrabilite-spf-dkim/",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://faq.o2switch.fr/cpanel/emails/delivrabilite-spf-dkim/",
+          "read": "2026-11-24"
+        }
+      }
+    },
+    {
+      "id": "kinghost",
+      "name": "KingHost",
+      "mx": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://king.host/wiki/artigo/dkim-spf-e-dmarc-como-garantir-a-seguranca-e-a-entrega-dos-seus-e-mails/",
+          "read": "2026-11-24"
+        }
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "_spf.kinghost.net",
+            "basis": "vendor",
+            "url": "https://king.host/wiki/artigo/dkim-spf-e-dmarc-como-garantir-a-seguranca-e-a-entrega-dos-seus-e-mails/",
+            "read": "2026-11-24",
+            "quote": "Clientes : v=spf1 include:_spf.kinghost.net -all Revendas : v=spf1 include:_spf.uni5.net -all"
+          },
+          {
+            "value": "_spf.uni5.net",
+            "basis": "vendor",
+            "url": "https://king.host/wiki/artigo/dkim-spf-e-dmarc-como-garantir-a-seguranca-e-a-entrega-dos-seus-e-mails/",
+            "read": "2026-11-24",
+            "quote": "Clientes : v=spf1 include:_spf.kinghost.net -all Revendas : v=spf1 include:_spf.uni5.net -all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "none-documented",
+          "url": "https://king.host/wiki/artigo/dkim-spf-e-dmarc-como-garantir-a-seguranca-e-a-entrega-dos-seus-e-mails/",
+          "read": "2026-11-24"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "It names the domain that signs its customers’ mail, not a CNAME target of a key at their domain.",
+          "url": "https://king.host/wiki/artigo/dkim-spf-e-dmarc-como-garantir-a-seguranca-e-a-entrega-dos-seus-e-mails/",
+          "read": "2026-11-24",
+          "quote": "Clientes : dkim.kinghost.net"
+        }
+      }
+    },
+    {
+      "id": "mijndomein",
+      "name": "Mijndomein",
+      "mx": {
+        "values": [
+          {
+            "value": "mx1.mijndomein.nl",
+            "basis": "vendor",
+            "url": "https://mijndomein.zendesk.com/hc/nl/articles/360001163498-Je-domeinnaam-koppelen-aan-je-Wix-website-via-nameservers",
+            "read": "2026-11-24",
+            "quote": "Type: MX Prioriteit: 10 Hostnaam: leeg laten Waarde: mx1.mijndomein.nl"
+          },
+          {
+            "value": "mx2.mijndomein.nl",
+            "basis": "vendor",
+            "url": "https://mijndomein.zendesk.com/hc/nl/articles/360001163498-Je-domeinnaam-koppelen-aan-je-Wix-website-via-nameservers",
+            "read": "2026-11-24",
+            "quote": "Type: MX Prioriteit: 20 Hostnaam: leeg laten Waarde: mx2.mijndomein.nl"
+          }
+        ]
+      },
+      "spfIncludes": {
+        "values": [
+          {
+            "value": "spf.mijndomeinhosting.nl",
+            "basis": "vendor",
+            "url": "https://mijndomein.zendesk.com/hc/nl/articles/360001163498-Je-domeinnaam-koppelen-aan-je-Wix-website-via-nameservers",
+            "read": "2026-11-24",
+            "quote": "Type: TXT Hostnaam: leeg laten Waarde: v=spf1 a mx include:spf.mijndomeinhosting.nl ~all"
+          }
+        ]
+      },
+      "dkimSelectors": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "The check does not try these selectors; a key there is found when typed, and names no provider, as its CNAME target is not one of Mijndomein’s own names.",
+          "url": "https://mijndomein.zendesk.com/hc/nl/articles/360001163498-Je-domeinnaam-koppelen-aan-je-Wix-website-via-nameservers",
+          "read": "2026-11-24",
+          "quote": "Type: CNAME Hostnaam: soverin1._domainkey Waarde: soverin1._domainkey.sover.in"
+        }
+      },
+      "dkimTargets": {
+        "values": [],
+        "whyEmpty": {
+          "reason": "documented-not-used",
+          "note": "sover.in is not one of Mijndomein’s own names, so a key there is not credited to Mijndomein.",
+          "url": "https://mijndomein.zendesk.com/hc/nl/articles/360001163498-Je-domeinnaam-koppelen-aan-je-Wix-website-via-nameservers",
+          "read": "2026-11-24",
+          "quote": "Hostnaam: soverin1._domainkey Waarde: soverin1._domainkey.sover.in"
+        }
+      }
+    }
+  ],
+  "selectors": [
+    {
+      "selector": "google",
+      "attribution": "name",
+      "provider": "google-workspace",
+      "basis": "vendor",
+      "url": "https://knowledge.workspace.google.com/admin/security/set-up-dkim",
+      "read": "2026-11-20",
+      "quote": "The default prefix selector is google ."
+    },
+    {
+      "selector": "selector1",
+      "attribution": "cname-target",
+      "provider": "microsoft-365",
+      "basis": "vendor",
+      "url": "https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure",
+      "read": "2026-11-20",
+      "quote": "Points to address or value: selector1-contoso-com._domainkey.contoso.onmicrosoft.com"
+    },
+    {
+      "selector": "selector2",
+      "attribution": "cname-target",
+      "provider": "microsoft-365",
+      "basis": "vendor",
+      "url": "https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dkim-configure",
+      "read": "2026-11-20",
+      "quote": "Hostname: selector2._domainkey"
+    },
+    {
+      "selector": "fm1",
+      "attribution": "cname-target",
+      "provider": "fastmail",
+      "basis": "vendor",
+      "url": "https://www.fastmail.help/hc/en-us/articles/360060591153-Manual-DNS-configuration",
+      "read": "2026-11-20",
+      "quote": "CNAME fm1._domainkey fm1.{mydomain.com}.dkim.fmhosted.com"
+    },
+    {
+      "selector": "fm2",
+      "attribution": "cname-target",
+      "provider": "fastmail",
+      "basis": "vendor",
+      "url": "https://www.fastmail.help/hc/en-us/articles/360060591153-Manual-DNS-configuration",
+      "read": "2026-11-20",
+      "quote": "CNAME fm2._domainkey fm2.{mydomain.com}.dkim.fmhosted.com"
+    },
+    {
+      "selector": "fm3",
+      "attribution": "cname-target",
+      "provider": "fastmail",
+      "basis": "vendor",
+      "url": "https://www.fastmail.help/hc/en-us/articles/360060591153-Manual-DNS-configuration",
+      "read": "2026-11-20",
+      "quote": "CNAME fm3._domainkey fm3.{mydomain.com}.dkim.fmhosted.com"
+    },
+    {
+      "selector": "protonmail",
+      "attribution": "name",
+      "provider": "proton-mail",
+      "basis": "vendor",
+      "url": "https://proton.me/support/custom-domain-cloudflare",
+      "read": "2026-11-20",
+      "quote": "Name : protonmail._domainkey"
+    },
+    {
+      "selector": "protonmail2",
+      "attribution": "name",
+      "provider": "proton-mail",
+      "basis": "vendor",
+      "url": "https://proton.me/support/custom-domain-cloudflare",
+      "read": "2026-11-20",
+      "quote": "To add a second and third DKIM record, repeat these steps with the appropriate record names protonmail2._domainkey and protonmail3._domainkey ."
+    },
+    {
+      "selector": "protonmail3",
+      "attribution": "name",
+      "provider": "proton-mail",
+      "basis": "vendor",
+      "url": "https://proton.me/support/custom-domain-cloudflare",
+      "read": "2026-11-20",
+      "quote": "To add a second and third DKIM record, repeat these steps with the appropriate record names protonmail2._domainkey and protonmail3._domainkey ."
+    },
+    {
+      "selector": "sig1",
+      "attribution": "cname-target",
+      "provider": "icloud",
+      "basis": "vendor",
+      "url": "https://support.apple.com/en-us/102374",
+      "read": "2026-11-20",
+      "quote": "Record Type: CNAME Host: sig1._domainkey Value: sig1.dkim.example.com.at.icloudmailadmin.com."
+    },
+    {
+      "selector": "cf2024-1",
+      "attribution": "name",
+      "provider": "cloudflare-email-routing",
+      "basis": "vendor",
+      "url": "https://developers.cloudflare.com/email-service/configuration/domains/",
+      "read": "2026-11-20",
+      "quote": "TXT cf2024-1._domainkey.yourdomain.com"
+    },
+    {
+      "selector": "zoho",
+      "attribution": "name",
+      "provider": "zoho-mail",
+      "basis": "vendor",
+      "url": "https://www.zoho.com/mail/help/adminconsole/dkim-configuration.html",
+      "read": "2026-11-20",
+      "quote": "zoho._domainkey"
+    },
+    {
+      "selector": "s1",
+      "attribution": "cname-target",
+      "provider": "sendgrid",
+      "basis": "vendor",
+      "url": "https://www.twilio.com/docs/sendgrid/ui/account-and-settings/how-to-set-up-domain-authentication",
+      "read": "2026-11-20",
+      "quote": "s1._domainkey.example.com s1.domainkey.[u00000000].[wl000].sendgrid.net DKIM"
+    },
+    {
+      "selector": "s2",
+      "attribution": "cname-target",
+      "provider": "sendgrid",
+      "basis": "vendor",
+      "url": "https://www.twilio.com/docs/sendgrid/ui/account-and-settings/how-to-set-up-domain-authentication",
+      "read": "2026-11-20",
+      "quote": "s2._domainkey.example.com s2.domainkey.[u00000000].[wl000].sendgrid.net DKIM"
+    },
+    {
+      "selector": "k1",
+      "attribution": "cname-target",
+      "provider": "mailchimp",
+      "basis": "dns",
+      "read": "2026-11-20",
+      "seenOn": [
+        "mailchimp.com",
+        "intuit.com"
+      ]
+    },
+    {
+      "selector": "k2",
+      "attribution": "cname-target",
+      "provider": "mailchimp",
+      "basis": "vendor",
+      "url": "https://mailchimp.com/help/set-up-email-domain-authentication/",
+      "read": "2026-11-20",
+      "quote": "For example, if you enter “k2._domainkey.example.com” and “k2._domainkey.example.com.example.com” is created"
+    },
+    {
+      "selector": "k3",
+      "attribution": "cname-target",
+      "provider": "mailchimp",
+      "basis": "dns",
+      "read": "2026-11-20",
+      "seenOn": [
+        "mailchimp.com",
+        "intuit.com"
+      ]
+    },
+    {
+      "selector": "resend",
+      "attribution": "name",
+      "provider": "resend",
+      "basis": "vendor",
+      "url": "https://resend.com/docs/llms-full.txt",
+      "read": "2026-11-20",
+      "quote": "Type `resend._domainkey` for the `Name` of the record."
+    },
+    {
+      "selector": "brevo1",
+      "attribution": "name",
+      "provider": "brevo",
+      "basis": "vendor",
+      "url": "https://help.brevo.com/hc/en-us/articles/16045394674066",
+      "read": "2026-11-20",
+      "quote": "DKIM 1 record brevo1._domainkey brevo1._domainkey.yourdomain.com"
+    },
+    {
+      "selector": "brevo2",
+      "attribution": "name",
+      "provider": "brevo",
+      "basis": "vendor",
+      "url": "https://help.brevo.com/hc/en-us/articles/16045394674066",
+      "read": "2026-11-20",
+      "quote": "DKIM 2 record brevo2._domainkey brevo2._domainkey.yourdomain.com"
+    },
+    {
+      "selector": "mail",
+      "attribution": "never",
+      "usedBy": "Brevo",
+      "basis": "vendor",
+      "url": "https://developers.brevo.com/reference/create-domain",
+      "read": "2026-11-20",
+      "quote": "\"dkim_record\": { \"host_name\": \"mail._domainkey\", \"type\": \"TXT\""
+    },
+    {
+      "selector": "smtp",
+      "attribution": "never",
+      "provider": "mailgun",
+      "basis": "vendor",
+      "url": "https://help.mailgun.com/hc/en-us/articles/15585722150299-Cloudflare-DNS-Setup-Guide",
+      "read": "2026-11-20",
+      "quote": "pic._domainkey (or, one of several other values such as krs._domainkey , smtp._domainkey , or mailo._domainkey )"
+    },
+    {
+      "selector": "mx",
+      "attribution": "never",
+      "provider": "mailgun",
+      "basis": "vendor",
+      "url": "https://help.mailgun.com/hc/en-us/articles/32884700912923-Domain-Verification-Setup-Guide",
+      "read": "2026-11-20",
+      "quote": "Add another TXT record for mx._domainkey.mail.yourdomain.com ."
+    },
+    {
+      "selector": "pic",
+      "attribution": "name",
+      "provider": "mailgun",
+      "basis": "vendor",
+      "url": "https://help.mailgun.com/hc/en-us/articles/15585722150299-Cloudflare-DNS-Setup-Guide",
+      "read": "2026-11-20",
+      "quote": "pic._domainkey (or, one of several other values such as krs._domainkey , smtp._domainkey , or mailo._domainkey )"
+    },
+    {
+      "selector": "default",
+      "attribution": "never",
+      "usedBy": "cPanel",
+      "basis": "vendor",
+      "url": "https://support.cpanel.net/hc/en-us/articles/4402780648983-Does-cPanel-support-custom-DKIM-selectors",
+      "read": "2026-11-20",
+      "quote": "By default, cPanel systems use \"default._domainkey\" as the DKIM selector."
+    },
+    {
+      "selector": "dkim",
+      "attribution": "never",
+      "usedBy": "rspamd",
+      "basis": "vendor",
+      "url": "https://docs.rspamd.com/modules/dkim_signing/",
+      "read": "2026-11-20",
+      "quote": "# Default selector to use selector = \"dkim\";"
+    },
+    {
+      "selector": "mandrill",
+      "attribution": "never",
+      "usedBy": "Mailchimp Transactional (Mandrill)",
+      "basis": "dns",
+      "read": "2026-11-20",
+      "seenOn": [
+        "mandrillapp.com"
+      ]
+    },
+    {
+      "selector": "kl",
+      "attribution": "cname-target",
+      "provider": "klaviyo",
+      "basis": "vendor",
+      "url": "https://help.klaviyo.com/hc/en-us/articles/4417768780827",
+      "read": "2026-11-20",
+      "quote": "Existing static domains can use legacy selector pairs such as kl/kl2 or kl1/kl2 ."
+    },
+    {
+      "selector": "kl2",
+      "attribution": "cname-target",
+      "provider": "klaviyo",
+      "basis": "vendor",
+      "url": "https://help.klaviyo.com/hc/en-us/articles/4417768780827",
+      "read": "2026-11-20",
+      "quote": "Existing static domains can use legacy selector pairs such as kl/kl2 or kl1/kl2 ."
+    },
+    {
+      "selector": "zendesk1",
+      "attribution": "cname-target",
+      "provider": "zendesk",
+      "basis": "vendor",
+      "url": "https://support.zendesk.com/hc/en-us/articles/4408822303386-Digitally-signing-your-email-with-DKIM",
+      "read": "2026-11-20",
+      "quote": "In the Host Record field (or equivalent), enter: zendesk1._domainkey. your_email_domain.com"
+    },
+    {
+      "selector": "zendesk2",
+      "attribution": "cname-target",
+      "provider": "zendesk",
+      "basis": "vendor",
+      "url": "https://support.zendesk.com/hc/en-us/articles/4408822303386-Digitally-signing-your-email-with-DKIM",
+      "read": "2026-11-20",
+      "quote": "In the Host Record field, enter: zendesk2._domainkey. your_email_domain .com"
+    },
+    {
+      "selector": "mailjet",
+      "attribution": "never",
+      "usedBy": "Mailjet",
+      "basis": "vendor",
+      "url": "https://dev.mailjet.com/docs/email-api/senders-domains/spf-dkim-validation",
+      "read": "2026-11-20",
+      "quote": "\"DKIMRecordName\": \"mailjet._domainkey.example.com.\""
+    },
+    {
+      "selector": "mte1",
+      "attribution": "cname-target",
+      "provider": "mandrill",
+      "basis": "vendor",
+      "url": "https://mailchimp.com/developer/transactional/docs/authentication-delivery/",
+      "read": "2026-11-20",
+      "quote": "Add two new CNAME records with the names mte1._domainkey.example.com and mte2._domainkey.example.com"
+    },
+    {
+      "selector": "mte2",
+      "attribution": "cname-target",
+      "provider": "mandrill",
+      "basis": "vendor",
+      "url": "https://mailchimp.com/developer/transactional/docs/authentication-delivery/",
+      "read": "2026-11-20",
+      "quote": "Add two new CNAME records with the names mte1._domainkey.example.com and mte2._domainkey.example.com"
+    },
+    {
+      "selector": "intercom",
+      "attribution": "never",
+      "usedBy": "Intercom",
+      "basis": "vendor",
+      "url": "https://www.intercom.com/help/en/articles/11183745-troubleshooting-email-authentication-issues-dkim-dmarc-and-dns-setup",
+      "read": "2026-11-20",
+      "quote": "Selector : intercom Domain : yourdomain.com"
+    },
+    {
+      "selector": "cm",
+      "attribution": "never",
+      "usedBy": "Campaign Monitor",
+      "basis": "vendor",
+      "url": "https://help.campaignmonitor.com/s/article/use-your-own-domains",
+      "read": "2026-11-20",
+      "quote": "Fourth level domains — For example, cm._domainkey.example.com."
+    },
+    {
+      "selector": "krs",
+      "attribution": "name",
+      "provider": "mailgun",
+      "basis": "vendor",
+      "url": "https://help.mailgun.com/hc/en-us/articles/15585722150299-Cloudflare-DNS-Setup-Guide",
+      "read": "2026-11-20",
+      "quote": "pic._domainkey (or, one of several other values such as krs._domainkey , smtp._domainkey , or mailo._domainkey )"
+    },
+    {
+      "selector": "mailo",
+      "attribution": "name",
+      "provider": "mailgun",
+      "basis": "vendor",
+      "url": "https://help.mailgun.com/hc/en-us/articles/15585722150299-Cloudflare-DNS-Setup-Guide",
+      "read": "2026-11-20",
+      "quote": "pic._domainkey (or, one of several other values such as krs._domainkey , smtp._domainkey , or mailo._domainkey )"
+    },
+    {
+      "selector": "x",
+      "attribution": "never",
+      "usedBy": "DirectAdmin",
+      "basis": "vendor",
+      "url": "https://docs.directadmin.com/directadmin/general-usage/all-directadmin-conf-values.html",
+      "read": "2026-11-20",
+      "quote": "dkim_selector=x The selector to be used for dkim records."
+    },
+    {
+      "selector": "hostingermail-a",
+      "attribution": "cname-target",
+      "provider": "hostinger",
+      "basis": "vendor",
+      "url": "https://www.hostinger.com/support/4456413-what-are-the-dkim-records-for-hostinger-email/",
+      "read": "2026-11-20",
+      "quote": "CNAME hostingermail-a._domainkey hostingermail-a.dkim.mail.hostinger.com"
+    },
+    {
+      "selector": "hostingermail-b",
+      "attribution": "cname-target",
+      "provider": "hostinger",
+      "basis": "vendor",
+      "url": "https://www.hostinger.com/support/4456413-what-are-the-dkim-records-for-hostinger-email/",
+      "read": "2026-11-20",
+      "quote": "CNAME hostingermail-b._domainkey hostingermail-b.dkim.mail.hostinger.com"
+    },
+    {
+      "selector": "hostingermail-c",
+      "attribution": "cname-target",
+      "provider": "hostinger",
+      "basis": "vendor",
+      "url": "https://www.hostinger.com/support/4456413-what-are-the-dkim-records-for-hostinger-email/",
+      "read": "2026-11-20",
+      "quote": "CNAME hostingermail-c._domainkey hostingermail-c.dkim.mail.hostinger.com"
+    },
+    {
+      "selector": "s1-ionos",
+      "attribution": "cname-target",
+      "provider": "ionos",
+      "basis": "vendor",
+      "url": "https://www.ionos.com/help/domains/configuring-mail-servers-and-other-related-records/email-authentication-with-dkim",
+      "read": "2026-11-20",
+      "quote": "s1-ionos._domainkey s1.dkim.ionos.com 1 hour"
+    },
+    {
+      "selector": "s2-ionos",
+      "attribution": "cname-target",
+      "provider": "ionos",
+      "basis": "vendor",
+      "url": "https://www.ionos.com/help/domains/configuring-mail-servers-and-other-related-records/email-authentication-with-dkim",
+      "read": "2026-11-20",
+      "quote": "s2-ionos._domainkey s2.dkim.ionos.com 1 hour"
+    },
+    {
+      "selector": "litesrv",
+      "attribution": "cname-target",
+      "provider": "mailerlite",
+      "basis": "vendor",
+      "url": "https://www.mailerlite.com/help/how-to-authenticate-a-domain-with-cloudflare",
+      "read": "2026-11-20",
+      "quote": "In the Name field box, add litesrv._domainkey ."
+    },
+    {
+      "selector": "acdkim1",
+      "attribution": "never",
+      "usedBy": "ActiveCampaign",
+      "basis": "vendor",
+      "url": "https://help.activecampaign.com/hc/en-us/articles/360015584680-Set-up-your-sending-domain",
+      "read": "2026-11-20",
+      "quote": "like acdkim1._domainkey (most common)"
+    },
+    {
+      "selector": "strong1",
+      "attribution": "cname-target",
+      "provider": "help-scout",
+      "basis": "vendor",
+      "url": "https://docs.helpscout.com/article/666-use-dkim-to-help-with-email-delivery",
+      "read": "2026-11-20",
+      "quote": "strong1._domainkey.yourdomain.com will point to strong1._domainkey.helpscout.net"
+    },
+    {
+      "selector": "strong2",
+      "attribution": "cname-target",
+      "provider": "help-scout",
+      "basis": "vendor",
+      "url": "https://docs.helpscout.com/article/666-use-dkim-to-help-with-email-delivery",
+      "read": "2026-11-20",
+      "quote": "strong2._domainkey.yourdomain.com will point to strong2._domainkey.helpscout.net"
+    },
+    {
+      "selector": "ctct1",
+      "attribution": "cname-target",
+      "provider": "constant-contact",
+      "basis": "vendor",
+      "url": "https://knowledgebase.constantcontact.com/email-digital-marketing/articles/KnowledgeBase/39520-Update-your-DNS-records-through-your-hosting-provider-to-finish-setting-up-self-authentication?lang=en_US",
+      "read": "2026-11-20",
+      "quote": "For CNAME, the record name should be input as “ctct1._domainkey” and “ctct2_domainkey”"
+    },
+    {
+      "selector": "ctct2",
+      "attribution": "cname-target",
+      "provider": "constant-contact",
+      "basis": "vendor",
+      "url": "https://knowledgebase.constantcontact.com/email-digital-marketing/articles/KnowledgeBase/39520-Update-your-DNS-records-through-your-hosting-provider-to-finish-setting-up-self-authentication?lang=en_US",
+      "read": "2026-11-20",
+      "quote": "For CNAME, the record name should be input as “ctct1._domainkey” and “ctct2_domainkey”"
+    },
+    {
+      "selector": "key1",
+      "attribution": "cname-target",
+      "provider": "migadu",
+      "basis": "vendor",
+      "url": "https://www.migadu.com/api/",
+      "read": "2026-11-20",
+      "quote": "\"name\": \"key1._domainkey\", \"type\": \"cname\", \"value\": \"key1.mydomain.org._domainkey.migadu.com.\""
+    },
+    {
+      "selector": "key2",
+      "attribution": "cname-target",
+      "provider": "migadu",
+      "basis": "vendor",
+      "url": "https://www.migadu.com/api/",
+      "read": "2026-11-20",
+      "quote": "\"name\": \"key2._domainkey\", \"type\": \"cname\", \"value\": \"key2.mydomain.org._domainkey.migadu.com.\""
+    },
+    {
+      "selector": "key3",
+      "attribution": "cname-target",
+      "provider": "migadu",
+      "basis": "vendor",
+      "url": "https://www.migadu.com/api/",
+      "read": "2026-11-20",
+      "quote": "\"name\": \"key3._domainkey\", \"type\": \"cname\", \"value\": \"key3.mydomain.org._domainkey.migadu.com.\""
+    },
+    {
+      "selector": "m1",
+      "attribution": "cname-target",
+      "provider": "sendgrid",
+      "basis": "vendor",
+      "url": "https://www.twilio.com/docs/sendgrid/ui/account-and-settings/how-to-set-up-domain-authentication",
+      "read": "2026-11-20",
+      "quote": "m1._domainkey.example.com k=rsa; t=s; p=MIG... DKIM"
+    },
+    {
+      "selector": "squarespace",
+      "attribution": "cname-target",
+      "provider": "squarespace",
+      "basis": "vendor",
+      "url": "https://support.squarespace.com/hc/en-us/articles/360001280748-Verify-your-third-party-domain-for-use-with-Email-Campaigns",
+      "read": "2026-11-20",
+      "quote": "CNAME squarespace._domainkey squarespace-domainkey.squarespace-mail.com"
+    },
+    {
+      "selector": "gm1",
+      "attribution": "cname-target",
+      "provider": "gandi",
+      "basis": "vendor",
+      "url": "https://docs.gandi.net/en/gandimail/common_operations/enable_antispoofing_tools.html",
+      "read": "2026-11-20",
+      "quote": "gm1._domainkey 10800 IN CNAME gm1.gandimail.net."
+    },
+    {
+      "selector": "gm2",
+      "attribution": "cname-target",
+      "provider": "gandi",
+      "basis": "vendor",
+      "url": "https://docs.gandi.net/en/gandimail/common_operations/enable_antispoofing_tools.html",
+      "read": "2026-11-20",
+      "quote": "gm2._domainkey 10800 IN CNAME gm2.gandimail.net."
+    },
+    {
+      "selector": "gm3",
+      "attribution": "cname-target",
+      "provider": "gandi",
+      "basis": "vendor",
+      "url": "https://docs.gandi.net/en/gandimail/common_operations/enable_antispoofing_tools.html",
+      "read": "2026-11-20",
+      "quote": "gm3._domainkey 10800 IN CNAME gm3.gandimail.net."
+    },
+    {
+      "selector": "kl1",
+      "attribution": "cname-target",
+      "provider": "klaviyo",
+      "basis": "vendor",
+      "url": "https://help.klaviyo.com/hc/en-us/articles/115000357752",
+      "read": "2026-11-20",
+      "quote": "your DNS records use the legacy kl1 / kl2 DKIM selectors and continue to work without changes."
+    },
+    {
+      "selector": "privateemail",
+      "attribution": "name",
+      "provider": "namecheap-private-email",
+      "basis": "vendor",
+      "url": "https://www.namecheap.com/support/knowledgebase/article.aspx/10383/2176/how-to-set-up-a-dkim-record-for-private-email/",
+      "read": "2026-11-20",
+      "quote": "Host : privateemail._domainkey Record type : TXT"
+    },
+    {
+      "selector": "purelymail1",
+      "attribution": "cname-target",
+      "provider": "purelymail",
+      "basis": "vendor",
+      "url": "https://purelymail.com/docs/domainDocs",
+      "read": "2026-11-20",
+      "quote": "Put purelymail1._domainkey on the \"Name\" field and key1.dkimroot.purelymail.com on the Content field."
+    },
+    {
+      "selector": "purelymail2",
+      "attribution": "cname-target",
+      "provider": "purelymail",
+      "basis": "vendor",
+      "url": "https://purelymail.com/docs/domainDocs",
+      "read": "2026-11-20",
+      "quote": "Put purelymail2._domainkey on the \"Name\" field and key2.dkimroot.purelymail.com on the Content field."
+    },
+    {
+      "selector": "purelymail3",
+      "attribution": "cname-target",
+      "provider": "purelymail",
+      "basis": "vendor",
+      "url": "https://purelymail.com/docs/domainDocs",
+      "read": "2026-11-20",
+      "quote": "Put purelymail3._domainkey on the \"Name\" field and key3.dkimroot.purelymail.com on the Content field."
+    },
+    {
+      "selector": "mbo0001",
+      "attribution": "cname-target",
+      "provider": "mailbox-org",
+      "basis": "vendor",
+      "url": "https://kb.mailbox.org/en/private/custom-domains/spf-dkim-and-dmarc/",
+      "read": "2026-11-20",
+      "quote": "MBO0001._domainkey.example.com CNAME MBO0001._domainkey.mailbox.org."
+    },
+    {
+      "selector": "mbo0002",
+      "attribution": "cname-target",
+      "provider": "mailbox-org",
+      "basis": "vendor",
+      "url": "https://kb.mailbox.org/en/private/custom-domains/spf-dkim-and-dmarc/",
+      "read": "2026-11-20",
+      "quote": "MBO0002._domainkey.example.com CNAME MBO0002._domainkey.mailbox.org."
+    },
+    {
+      "selector": "mbo0003",
+      "attribution": "cname-target",
+      "provider": "mailbox-org",
+      "basis": "vendor",
+      "url": "https://kb.mailbox.org/en/private/custom-domains/spf-dkim-and-dmarc/",
+      "read": "2026-11-20",
+      "quote": "MBO0003._domainkey.example.com CNAME MBO0003._domainkey.mailbox.org."
+    },
+    {
+      "selector": "mbo0004",
+      "attribution": "cname-target",
+      "provider": "mailbox-org",
+      "basis": "vendor",
+      "url": "https://kb.mailbox.org/en/private/custom-domains/spf-dkim-and-dmarc/",
+      "read": "2026-11-20",
+      "quote": "MBO0004._domainkey.example.com CNAME MBO0004._domainkey.mailbox.org."
+    },
+    {
+      "selector": "strato-dkim-0002",
+      "attribution": "cname-target",
+      "provider": "strato",
+      "basis": "vendor",
+      "url": "https://www.strato.de/faq/domains/wie-kann-ich-bei-strato-meine-dns-eintraege-verwalten/",
+      "read": "2026-11-20",
+      "quote": "strato-dkim-0002._domainkey.meinedomain.tld CNAME strato-dkim-0002._domainkey.rzone.de."
+    },
+    {
+      "selector": "strato-dkim-0003",
+      "attribution": "cname-target",
+      "provider": "strato",
+      "basis": "vendor",
+      "url": "https://www.strato.de/faq/domains/wie-kann-ich-bei-strato-meine-dns-eintraege-verwalten/",
+      "read": "2026-11-20",
+      "quote": "strato-dkim-0003._domainkey.meinedomain.tld CNAME strato-dkim-0003._domainkey.rzone.de."
+    },
+    {
+      "selector": "cf-bounce",
+      "attribution": "never",
+      "usedBy": "Cloudflare Email Sending",
+      "basis": "vendor",
+      "url": "https://developers.cloudflare.com/email-service/configuration/domains/",
+      "read": "2026-11-20",
+      "quote": "TXT cf-bounce._domainkey.yourdomain.com"
+    },
+    {
+      "selector": "a1",
+      "attribution": "never",
+      "usedBy": "Aruba",
+      "basis": "vendor",
+      "url": "https://guide.aruba.it/hosting-e-domini/email/gestione-email/sicurezza-e-storico-accessi/usare-dkim",
+      "read": "2026-11-20",
+      "quote": "Per la configurazione DKIM del servizio email Aruba descritta in questa guida, il selector utilizzato è a1 ."
+    },
+    {
+      "selector": "mailpoet1",
+      "attribution": "name",
+      "provider": "mailpoet",
+      "basis": "vendor",
+      "url": "https://kb.mailpoet.com/article/295-spf-dkim-dmarc",
+      "read": "2026-11-20",
+      "quote": "leaving them as ” mailpoet1._domainkey”, “mailpoet2._domainkey”, “_mailpoet”, and “_dmarc”"
+    },
+    {
+      "selector": "mailpoet2",
+      "attribution": "name",
+      "provider": "mailpoet",
+      "basis": "vendor",
+      "url": "https://kb.mailpoet.com/article/295-spf-dkim-dmarc",
+      "read": "2026-11-20",
+      "quote": "leaving them as ” mailpoet1._domainkey”, “mailpoet2._domainkey”, “_mailpoet”, and “_dmarc”"
+    },
+    {
+      "selector": "e2ma-k1",
+      "attribution": "cname-target",
+      "provider": "emma",
+      "basis": "vendor",
+      "url": "https://help.myemma.com/s/article/DomainKeys-Identified-Mail-DKIM",
+      "read": "2026-11-20",
+      "quote": "e2ma-k1._domainkey e2ma-k1.dkim.e2ma.net."
+    },
+    {
+      "selector": "e2ma-k2",
+      "attribution": "cname-target",
+      "provider": "emma",
+      "basis": "vendor",
+      "url": "https://help.myemma.com/s/article/DomainKeys-Identified-Mail-DKIM",
+      "read": "2026-11-20",
+      "quote": "e2ma-k2._domainkey e2ma-k2.dkim.e2ma.net."
+    },
+    {
+      "selector": "e2ma-k3",
+      "attribution": "cname-target",
+      "provider": "emma",
+      "basis": "vendor",
+      "url": "https://help.myemma.com/s/article/DomainKeys-Identified-Mail-DKIM",
+      "read": "2026-11-20",
+      "quote": "e2ma-k3._domainkey e2ma-k3.dkim.e2ma.net."
+    }
+  ]
+}

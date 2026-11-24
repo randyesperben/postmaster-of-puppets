@@ -1,0 +1,45 @@
+name: Email provider
+description: Add an email provider, or correct the records of one.
+title: "Provider: "
+labels: [provider]
+body:
+  - type: markdown
+    attributes:
+      value: Issues are public. If a domain is private, leave it out.
+  - type: input
+    id: provider
+    attributes:
+      label: Provider
+      description: Its name, as its customers know it.
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: What it does with mail
+      options:
+        - Sends mail for the domain
+        - Receives mail for the domain
+        - Both
+    validations:
+      required: true
+  - type: textarea
+    id: records
+    attributes:
+      label: Records it asks its customers to publish
+      description: SPF include, MX host names, DKIM selectors or CNAME targets, as its documentation writes them.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Its documentation
+      description: A link to the provider's own page that gives these records.
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: domain
+    attributes:
+      label: A domain that uses it (optional)
