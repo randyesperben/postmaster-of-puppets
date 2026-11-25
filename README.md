@@ -1,8 +1,6 @@
 <h1 align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset=".github/assets/wordmark-dark.svg">
-    <img alt="Postmaster of Puppets" src=".github/assets/wordmark.svg" width="420">
-  </picture>
+  <img alt="Postmaster of Puppets" src=".github/assets/wordmark.svg#gh-light-mode-only" width="420">
+  <img alt="Postmaster of Puppets" src=".github/assets/wordmark-dark.svg#gh-dark-mode-only" width="420">
 </h1>
 
 <p align="center">
@@ -17,10 +15,8 @@
 
 [![Tests](https://github.com/randyesperben/postmaster-of-puppets/actions/workflows/test.yml/badge.svg)](https://github.com/randyesperben/postmaster-of-puppets/actions/workflows/test.yml)
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/result-dark.png">
-  <img alt="The result for dmarc-none.badmail.dev, a test domain: Spoofable. Anyone can send email as it, because its DMARC record asks receivers to take no action on email that fakes it (p=none)." src=".github/assets/result.png">
-</picture>
+<img alt="The result for dmarc-none.badmail.dev, a test domain: Spoofable. Anyone can send email as it, because its DMARC record asks receivers to take no action on email that fakes it (p=none)." src=".github/assets/result.png#gh-light-mode-only">
+<img alt="The result for dmarc-none.badmail.dev, a test domain: Spoofable. Anyone can send email as it, because its DMARC record asks receivers to take no action on email that fakes it (p=none)." src=".github/assets/result-dark.png#gh-dark-mode-only">
 
 ## Try it
 
